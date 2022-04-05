@@ -14,7 +14,7 @@ if (document.getElementsByClassName('demo').length > 0) {
   var i = 0;
   var txt = `
   coder
-  musician
+  guitarist
   cool guy
   and oh boy
   is this website still under construction . . .`;
