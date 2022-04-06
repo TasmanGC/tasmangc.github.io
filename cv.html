@@ -1,6 +1,23 @@
 <!doctype html>
+
+
+
 <html>
   <head>
+    <style>
+      .column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+    
+    </style>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +44,6 @@
     <div class="wrapper">
       <aside class="doc__nav">
         <ul>
-          <li class="js-btn selected">Introduction</li>
           <li class="js-btn">Education</li>
           <li class="js-btn">Work Expierence</li>
           <li class="js-btn">Publications</li>
@@ -36,17 +52,25 @@
       </aside>
 
       <article class="doc__content">
-        
-        <section class="js-section">
-          <h3 class="section__title">Introduction</h3>
-          <p>This will be a great place to introduce myself. <!-- TODO expand on my discussion at some point. --></p>
-          <div class="section__title">
-          </div>
-        </section>
+      
 
         <section class="js-section">
           <h3 class="section__title">Education</h3>
-          <p>This will be a great place to overview my education. <!-- TODO expand on my discussion at some point. --></p>
+          <p>
+            In my undergraduate degree I gravitated towards geoscience.
+            After briefly working in an aquisition company I wanted to engage
+            with the date I worked hard aquiring. 
+            <br><br>
+            I retured to complete my Masters to gain experience working on a more substantial project,
+            and build a better understanding of the data I was aquiring. 
+            I found the field work and data investigation on the Woodroffe Thrust extremely rewarding. 
+            <br><br>
+            However the largest impact of my masters was a side project generating a submission for the
+            Frank Arnott Award. During this submission was able to expand on my passion for data under the mentorship of David Pratt and Bruce Fulton.
+            After our team won 3rd Place working with Self Organising Maps. This lead to an offer to complete a PhD in the GeoData Algorithims Team at the 
+            Center for Exploration Targeting (CET), UWA. For more info on my PhD consider reading the Projects Page.
+ 
+          </p>
           <table id="education">
 
             <tr>
@@ -54,7 +78,6 @@
               <th>Details</th>
               <th>Years</th>
             </tr>
-
             <tr>
               <td>PhD, University of Western Australia</td>
               <td>
@@ -62,7 +85,6 @@
                 <br><b>Supervisors</b>: Prof. Eun-Jung Holden, Dr. Daniel Wedge, Dr. Tom Horrocks</td>
               <td>2018 - 2022 (expected))</td>
             </tr>
-
             <tr>
               <td>MRes, Macquarie University</td>
               <td>
@@ -70,23 +92,27 @@
               <br><b>Supervisors</b>: Dr. Kate Selway, Prof. Simon George</td>
               <td>2016 - 2017</td>
             </tr>
-
             <tr>
-              <td>Bsc</td>
+              <td>Bsc, Macquarie University</td>
               <td>
               <br><b>Majors</b>: Dual major - Geology and Geophysics
               <br><b>Supervisors</b>: Prof. Mark Lackie, Prof. Juan Carlos Alfonso</td>
               <td>2011 - 2015</td>
             </tr>
-
           </table>
-          <hr />
+          <hr/>
 
         </section>
+        <!-- NOTE This is the start of the work Experience section-->
         <section class="js-section">
           <h3 class="section__title">Work Experience</h3>
-
-          <p>Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel inani aeterno ad. Facer oratio ex per. At eam movet verear, in sea brute patrioque disputando, usu nonumes torquatos an. Ex his quaerendum intellegebat, ut vel homero accusam. Eum at debet tibique, in vocibus temporibus adversarium sed. Porro verear eu vix, ne usu tation vituperata.</p>
+          <p>
+            I have been fortunate to work on several different types of geophysical surveys around Australia.
+            These survey types are detailed below, and in my time in the field I encountered many challenges and 
+            became aware with the challenges of remote work. Despite these challenges it was incredibly rewarding and 
+            insightful. I learned what I value above all else in this line of work and that is safety.
+          </p>
+          
           <table id="experience">
             <tr>
               <th>Position</th>
@@ -125,13 +151,37 @@
               <br><b>Supervisors</b>: Andrew Sloot, Phil Bland, Rod Hopper, and Daryl Coleman</td>
               <td>2015</td>
             </tr>
-
+          
           </table>
-          <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates suavitate vituperatoribus.</p>
-          <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates suavitate vituperatoribus.</p>
-          <hr />
+        
+        
+        
+        <p>
+          <div class="row">
+            <div class="column">
+              <img src="cables.jpg" alt="Snow" style="width:100%">
+            </div>
+            <div class="column">
+              <img src="cobar.jpg" alt="Forest" style="width: 100%">
+            </div>
+            <div class="column">
+              <img src="karratha.jpg" alt="Mountains" style="width:100%">
+            </div>
+          </div>        
+        </p>
 
-        </section>
+        <p>
+          While in the field I was lucky to work with people from all walks of life.
+          It was an amazing experience, I can talk for hours about it so wether is the crocs in the NT, 
+          climbing cliffs with cables on my shoulders, cross country drives, or frogs in the shower. 
+        </p>
+      
+      </section>
+              
+   
+            
+        
+
         <section class="js-section">
           <h3 class="section__title">Publications</h3>
           <p><!--TODO I think will require some more clever formatting--></p>
@@ -153,6 +203,7 @@
         </section>
       </article>
     </div>
+  </div>
 
     <footer class="footer">Tasman is a cool guy hire him for your projects, contact via <a href="https://www.linkedin.com/in/tasmangc/" target="_blank" class="link link--light">linkedin</a>.</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
