@@ -42,7 +42,7 @@ html, body {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 28%;
+  width: 33%;
   background-color: var(--bg-color);
   z-index: -1;
 }

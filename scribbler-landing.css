@@ -26,7 +26,7 @@ nav {
 }
 
 .hero__terminal {
-  width: 60%;
+  width: 50%;
   margin: -11rem auto 3rem auto;
   text-align: left;
   color: white;
@@ -50,7 +50,7 @@ nav {
 }
 
 .feature__item {
-  max-width: calc(33% - 20px);
+  max-width: 33%;
   margin: 0 20px 0 0;
 }
 
