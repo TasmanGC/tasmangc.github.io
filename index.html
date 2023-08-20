@@ -1,4 +1,13 @@
 <!doctype html>
+<style>
+  img {
+  float: left;
+  width:  200px;
+  height: 200px;
+  object-fit: cover;
+}
+</style>
+
 <html>
   <head>
       <meta charset="utf-8">
@@ -27,7 +36,7 @@
 
     <div class="hero">
       <h1 class="hero__title">TasmanGC</h1>
-      <p class="hero__description">His musings, projects but mainly his cv</p>
+      <p class="hero__description">His thoughts on geoscience, data science, and the things that keep him busy on weekends.</p>
     </div>
 
     <div class="hero__terminal">
@@ -38,113 +47,121 @@
     </div>
 
     <div class="wrapper">
-      <div class="installation">
-        <h3 class="section__title">Contact</h3>
-        <div class="tab__container">
-          <ul class="tab__menu">
-            <li class="tab active" data-tab="e">email</li>
-            <li class="tab" data-tab="t">twitter</li>
-            <li class="tab" data-tab="g">github</li>
-          </ul>
-          <pre class="nohighlight code">
-            <code class="tab__pane active e">tasman.gc@gmail.com</code>
-            <code class="tab__pane t">https://twitter.com/tasmangc</code>
-            <code class="tab__pane g">github.com/TasmanGC</code>
-          </pre>
-        </div>
+
+        <!-- Featured News Slider Start -->
+        <div class="container-fluid pt-5 mb-3">
+          <div class="container">
+              <div class="section-title">
+                  <h4 class="m-0 text-uppercase font-weight-bold">Blog Entries</h4>
+              </div>
+              <div class="owl-carousel news-carousel carousel-item-4 position-relative">
+                  <div class="position-relative overflow-hidden" style="height: 300px;">
+                      <img class="img-fluid h-100" src="images/som/som_no_dtm.png" style="object-fit: cover;">
+                      <div class="overlay">
+                          <div class="mb-2">
+                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                  href="">Machine Learning</a>
+                              <a class="text-white" href=""><small>April 04, 2023</small></a>
+                          </div>
+                          <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">The dos and don'ts of clustering. A SOM retrospective.</a>
+                      </div>
+                  </div>
+                  <div class="position-relative overflow-hidden" style="height: 300px;">
+                      <img class="img-fluid h-100" src="images/faa_UWA_1.jpg" style="object-fit: cover;">
+                      <div class="overlay">
+                          <div class="mb-2">
+                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                  href="">Team Communication</a>
+                              <a class="text-white" href=""><small>May 05, 2023</small></a>
+                          </div>
+                          <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Dynamics of cross disciplinary teams. How my NGEA team made the most of it's mentors.</a>
+                      </div>
+                  </div>
+                  <div class="position-relative overflow-hidden" style="height: 300px;">
+                      <img class="img-fluid h-100" src="images/cobar.jpg" style="object-fit: cover;">
+                      <div class="overlay">
+                          <div class="mb-2">
+                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                  href="">Geoscience</a>
+                              <a class="text-white" href=""><small>Jun 07, 2023</small></a>
+                          </div>
+                          <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="/posts/geoscience_datascience.html">You've heard of Exploration Geoscience but what about Exploration Datscience?</a>
+                      </div>
+                  </div>
+                  <div class="position-relative overflow-hidden" style="height: 300px;">
+                      <img class="img-fluid h-100" src="/images/earth_blender/geophysics.png" style="object-fit: cover;">
+                      <div class="overlay">
+                          <div class="mb-2">
+                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                  href="">Data Visualisation</a>
+                              <a class="text-white" href=""><small>Jan 01, 2045</small></a>
+                          </div>
+                          <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">What modern rendering can do for your geophysical interpretations - Earth Blender</a>
+                      </div>
+                  </div>
+                  <div class="position-relative overflow-hidden" style="height: 300px;">
+                      <img class="img-fluid h-100" src="/images/gnn/graph_construction.png" style="object-fit: cover;">
+                      <div class="overlay">
+                          <div class="mb-2">
+                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                  href="">Machine Learning</a>
+                              <a class="text-white" href=""><small>Jan 01, 2045</small></a>
+                          </div>
+                          <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href=""> A new type of Neural network with interesting applications - Graph Neural Networks</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
+      <!-- Featured News Slider End -->
 
-    <div class="feature">
-        <div class="feature__item">
-          <h3 class="section__title">Programing Experience</h3>
-          <p>Python (Pytorch, Keras, Pyvista), Matlab, HTML</p>
+
+        <div class="installation">
+          <h3 class="section__title">Contact</h3>
+          <div class="tab__container">
+            <ul class="tab__menu">
+              <li class="tab active" data-tab="e">email</li>
+              <li class="tab" data-tab="t">twitter</li>
+              <li class="tab" data-tab="g">github</li>
+            </ul>
+            <pre class="nohighlight code">
+              <code class="tab__pane active e">tasman.gc@gmail.com</code>
+              <code class="tab__pane t">https://twitter.com/tasmangc</code>
+              <code class="tab__pane g">github.com/TasmanGC</code>
+            </pre>
+          </div>
         </div>
 
-        <div class="feature__item">
-          <h3 class="section__title">Team Player</h3>
-          <p>Wow, am I just fun to be around.</p>
+        <div class="feature">
+          <div class="feature__item">
+            <h3 class="section__title">Software Developer</h3>
+            <p>Python (Pytorch, Keras, Pyvista), Matlab, R if I have to, HTML</p>
+          </div>
+
+          <div class="feature__item">
+            <h3 class="section__title">Team Professional</h3>
+            <p>I don't know everything, that's why I work with others to get the best results.
+            </p>
+          </div>
+
+          <div class="feature__item">
+            <h3 class="section__title">Geophysicist</h3>
+            <p>I've worked with and aquired geophysical data from many parts of the world.</p>
+          </div>
+
+          <div class="feature__item">
+            <h3 class="section__title">Data Scientist</h3>
+            <p>Not just a script on my desktop, a tested production system on the cloud.</p>
+          </div>
         </div>
 
-        <div class="feature__item">
-          <h3 class="section__title">Field Aware</h3>
-          <p>I've done a bunch of geophysical surveys, I know field conditions all over Australia.</p>
+        <div class="callout">
+          <p>Read my CV to learn more about my Experience</p>
+          <a href="/pages/cv.html" class="button--primary">CV</a>
         </div>
-      </div>
-
-      <div class="callout">
-        <p>Read my CV to learn more about my Experience</p>
-        <a href="/pages/cv.html" class="button--primary">CV</a>
-      </div>
   
-           <!-- Featured News Slider Start -->
-           <div class="container-fluid pt-5 mb-3">
-            <div class="container">
-                <div class="section-title">
-                    <h4 class="m-0 text-uppercase font-weight-bold">Featured News</h4>
-                </div>
-                <div class="owl-carousel news-carousel carousel-item-4 position-relative">
-                    <div class="position-relative overflow-hidden" style="height: 300px;">
-                        <img class="img-fluid h-100" src="images/cobar.jpg" style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="">Geoscience</a>
-                                <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                            </div>
-                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="/posts/post_1.html">Lorem ipsum dolor sit amet elit...</a>
-                        </div>
-                    </div>
-                    <div class="position-relative overflow-hidden" style="height: 300px;">
-                        <img class="img-fluid h-100" src="images/faa_UWA_1.jpg" style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="">Team Communication</a>
-                                <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                            </div>
-                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="/posts/post_2.html">Dynamics of cross disciplinary teams. How my NGEA team made the most of it's mentors.</a>
-                        </div>
-                    </div>
-                    <div class="position-relative overflow-hidden" style="height: 300px;">
-                        <img class="img-fluid h-100" src="images/cobar.jpg" style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="">Data Visualisation</a>
-                                <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                            </div>
-                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet elit...</a>
-                        </div>
-                    </div>
-                    <div class="position-relative overflow-hidden" style="height: 300px;">
-                        <img class="img-fluid h-100" src="/images/cobar.jpg" style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="">Machine Learning</a>
-                                <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                            </div>
-                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet elit...</a>
-                        </div>
-                    </div>
-                    <div class="position-relative overflow-hidden" style="height: 300px;">
-                        <img class="img-fluid h-100" src="/images/cobar.jpg" style="object-fit: cover;">
-                        <div class="overlay">
-                            <div class="mb-2">
-                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                    href="">Geoscience</a>
-                                <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                            </div>
-                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet elit...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Featured News Slider End -->
 
-
-        <footer class="footer"> This website was adapted from  <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light">Codrops</a>.</footer>
+        <footer class="footer"> This website was adapted from  <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light">Codrops</a> they're a great project check them out!</footer>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
         <script src="/js/scribbler.js"></script>
@@ -156,6 +173,6 @@
         <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
         
         <!-- Template Javascript -->
-        <script src="/js/main.js"></script>
+      <script src="/js/main.js"></script>
   </body>
 </html>
