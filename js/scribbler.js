@@ -16,8 +16,8 @@ if (document.getElementsByClassName('demo').length > 0) {
   coder
   guitarist
   cool guy
-  and oh boy
-  is this website still under construction . . .`;
+  new posts about once a month 
+  still updating backlog....`;
   var speed = 60;
 
   function typeItOut () {
