@@ -6,33 +6,37 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>TasmanGC - A cool guy with cool dreams</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
-      <link rel="stylesheet" href="scribbler-global.css">
-      <link rel="stylesheet" href="scribbler-landing.css">
-      <link rel="author" href="humans.txt">
+      <link rel="stylesheet" href="/css/scribbler-global.css">
+      <link rel="stylesheet" href="/css/scribbler-landing.css">
+      <link rel="stylesheet" href="/lib/owlcarousel/assets/owl.carousel.min.css">
+
   </head>
   <body>
     <nav>
       <div class="logo"></div>
       <ul class="menu">
         <div class="menu__item toggle"><span></span></div>
-        <li class="menu__item"><a href="cv.html" class="link link--dark"><i class="fa fa-book"></i> CV</a></li>
-        <li class="menu__item"><a href="doc.html" class="link link--dark"><i class="fa fa-grav"></i> Projects</a></li>
+        <li class="menu__item"><a href="/pages/cv.html" class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
+        <li class="menu__item"><a href="/pages/doc.html" class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
+        <li class="menu__item"><a href="" class="link link--dark"><i class="fa fa-grav"></i> Projects</a></li>
         <li class="menu__item"><a href="https://www.github.com/TasmanGC" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
-
       </ul>
     </nav>
+
     <div class="hero">
       <h1 class="hero__title">TasmanGC</h1>
       <p class="hero__description">His musings, projects but mainly his cv</p>
     </div>
+
     <div class="hero__terminal">
       <pre>
         <!-- Place your demo code here -->
         <code class="shell-session demo">tasmangc ~ $ </code>
       </pre>
     </div>
+
     <div class="wrapper">
       <div class="installation">
         <h3 class="section__title">Contact</h3>
@@ -50,8 +54,7 @@
         </div>
       </div>
 
-      <div class="feature">
-
+    <div class="feature">
         <div class="feature__item">
           <h3 class="section__title">Programing Experience</h3>
           <p>Python (Pytorch, Keras, Pyvista), Matlab, HTML</p>
@@ -66,18 +69,93 @@
           <h3 class="section__title">Field Aware</h3>
           <p>I've done a bunch of geophysical surveys, I know field conditions all over Australia.</p>
         </div>
-        
       </div>
 
       <div class="callout">
         <p>Read my CV to learn more about my Experience</p>
-        <a href="cv.html" class="button--primary">CV</a>
+        <a href="/pages/cv.html" class="button--primary">CV</a>
       </div>
-    </div>
+  
+           <!-- Featured News Slider Start -->
+           <div class="container-fluid pt-5 mb-3">
+            <div class="container">
+                <div class="section-title">
+                    <h4 class="m-0 text-uppercase font-weight-bold">Featured News</h4>
+                </div>
+                <div class="owl-carousel news-carousel carousel-item-4 position-relative">
+                    <div class="position-relative overflow-hidden" style="height: 300px;">
+                        <img class="img-fluid h-100" src="images/cobar.jpg" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="">Geoscience</a>
+                                <a class="text-white" href=""><small>Jan 01, 2045</small></a>
+                            </div>
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="/posts/post_1.html">Lorem ipsum dolor sit amet elit...</a>
+                        </div>
+                    </div>
+                    <div class="position-relative overflow-hidden" style="height: 300px;">
+                        <img class="img-fluid h-100" src="images/faa_UWA_1.jpg" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="">Team Communication</a>
+                                <a class="text-white" href=""><small>Jan 01, 2045</small></a>
+                            </div>
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="/posts/post_2.html">Dynamics of cross disciplinary teams. How my NGEA team made the most of it's mentors.</a>
+                        </div>
+                    </div>
+                    <div class="position-relative overflow-hidden" style="height: 300px;">
+                        <img class="img-fluid h-100" src="images/cobar.jpg" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="">Data Visualisation</a>
+                                <a class="text-white" href=""><small>Jan 01, 2045</small></a>
+                            </div>
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet elit...</a>
+                        </div>
+                    </div>
+                    <div class="position-relative overflow-hidden" style="height: 300px;">
+                        <img class="img-fluid h-100" src="/images/cobar.jpg" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="">Machine Learning</a>
+                                <a class="text-white" href=""><small>Jan 01, 2045</small></a>
+                            </div>
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet elit...</a>
+                        </div>
+                    </div>
+                    <div class="position-relative overflow-hidden" style="height: 300px;">
+                        <img class="img-fluid h-100" src="/images/cobar.jpg" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                    href="">Geoscience</a>
+                                <a class="text-white" href=""><small>Jan 01, 2045</small></a>
+                            </div>
+                            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet elit...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Featured News Slider End -->
 
-    <footer class="footer">This website was adapted from a cool template, Check them out <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light">Codrops</a>.</footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="scribbler.js"></script>
+
+        <footer class="footer"> This website was adapted from  <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light">Codrops</a>.</footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script src="/js/scribbler.js"></script>
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="/lib/easing/easing.min.js"></script>
+        <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+        
+        <!-- Template Javascript -->
+        <script src="/js/main.js"></script>
   </body>
 </html>
