@@ -59,7 +59,7 @@ html, body {
 }
 
 .doc__nav ul.fixed {
-  position: fixed;
+  position: sticky;
   top: 2rem;
 }
 
