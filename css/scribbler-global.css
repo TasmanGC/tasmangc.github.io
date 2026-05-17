@@ -171,7 +171,18 @@ hr {
 /* menu */
 nav {
   display: grid;
-  grid-template-columns: 70px auto;
+  grid-template-columns: auto 1fr;
+  background-color: var(--bg-color);
+  padding: 0 0.5rem;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--primary-color);
+  padding: 1rem 0.5rem 1rem 1rem;
+  white-space: nowrap;
 }
 
 .menu {
@@ -263,7 +274,7 @@ table td:first-child {
 
 @media screen and (max-width: 600px) {
   nav {
-    grid-template-columns: 70px auto;
+    grid-template-columns: auto 1fr;
   }
 
   .menu__item{

@@ -1,0 +1,408 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="How Graph Neural Networks can be applied to geophysical problems — spatial interpolation, multi-sensor fusion, and semi-supervised learning on irregular grids.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Graph Neural Networks for Geophysical Applications · TasmanGC</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌏</text></svg>">
+
+    <!-- Fonts and icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+
+    <!-- KaTeX for math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
+
+    <!-- Site styles -->
+    <link rel="stylesheet" href="/css/scribbler-global.css">
+    <link rel="stylesheet" href="/css/article.css">
+  </head>
+
+  <body>
+
+    <!-- Reading progress indicator -->
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <nav>
+      <div class="logo">TasmanGC</div>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="/pages/cv.html" class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
+        <li class="menu__item"><a href="/pages/blog.html" class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
+        <li class="menu__item"><a href="/pages/technical.html" class="link link--dark"><i class="fa fa-flask"></i> Technical</a></li>
+        <li class="menu__item"><a href="https://github.com/TasmanGC" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+        <li class="menu__item"><a href="/index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+      </ul>
+    </nav>
+
+    <!-- ============================================================
+         ARTICLE CONTENT
+         ============================================================ -->
+    <main class="article-main">
+
+      <!-- Article header -->
+      <header class="article-header">
+        <span class="category">Machine Learning</span>
+        <h1>Graph Neural Networks for Geophysical Applications</h1>
+        <p class="subtitle">
+          How treating geophysical datasets as graphs unlocks new approaches
+          to spatial interpolation, multi-sensor fusion, and semi-supervised learning
+          on irregular acquisition grids.
+        </p>
+        <div class="article-byline">
+          <span class="author">Tasman Gillfeather-Clark</span>
+          <span class="sep">·</span>
+          <time datetime="2023-10">October 2023</time>
+          <span class="sep">·</span>
+          <span>12 min read</span>
+        </div>
+      </header>
+
+      <hr class="article-divider">
+
+      <!-- Abstract -->
+      <div class="article-abstract">
+        <p>
+          <strong>Abstract.</strong>
+          Geophysical datasets are fundamentally irregular — observations are collected
+          along flight lines, drill holes, and sparse grids that rarely conform to a
+          regular lattice. Standard convolutional architectures assume grid-structured input
+          and impose an artificial regularity on data that doesn't have it. Graph Neural
+          Networks (GNNs) operate directly on point-cloud or graph-structured data, making
+          them a natural fit for geophysical interpolation, property prediction, and
+          semi-supervised labelling problems. This article introduces GNN fundamentals and
+          walks through a practical implementation applied to downhole geophysical log
+          interpolation.
+        </p>
+      </div>
+
+      <!-- Table of contents -->
+      <nav class="article-toc">
+        <h4>Contents</h4>
+        <ol>
+          <li><a href="#why-graphs">Why Graphs for Geoscience?</a></li>
+          <li><a href="#gnn-mechanics">How Graph Neural Networks Work</a></li>
+          <li><a href="#construction">Constructing the Graph</a></li>
+          <li><a href="#implementation">Implementation in PyTorch Geometric</a></li>
+          <li><a href="#results">Results and Limitations</a></li>
+        </ol>
+      </nav>
+
+      <hr class="article-divider">
+
+      <!-- ======================================================
+           ARTICLE BODY — two-column grid (text | sidenotes)
+           Every direct child of .article-body sits in column 1.
+           .sidenote items sit in column 2, stacking top-to-bottom.
+           On screens < 960 px both collapse to a single column.
+           ====================================================== -->
+      <div class="article-body">
+
+        <!-- ===== Section 1 ===== -->
+        <h2 id="why-graphs">1. Why Graphs for Geoscience?</h2>
+
+        <p>
+          The dominant paradigm in applied machine learning for geoscience borrows
+          heavily from computer vision: rasterise your data into a regular grid and
+          run a convolution over it.<sup class="sidenote-ref">1</sup>
+          For high-density airborne surveys this can work well — the grid spacing is
+          small relative to the wavelength of the features you care about. For downhole
+          data, gravity stations, or seismic receivers distributed across rugged terrain,
+          the rasterisation step introduces artefacts that are hard to diagnose and
+          harder to remove.
+        </p>
+
+        <!-- Sidenote 1 — appears in column 2 at this vertical position -->
+        <aside class="sidenote">
+          <span class="sn-num">1</span>
+          CNN-based approaches for geophysics include Zhang et al. (2018) on seismic
+          facies classification and Cracknell &amp; Reading (2014) on lithological mapping.
+          Both require gridded input.
+        </aside>
+
+        <p>
+          Graphs offer a more honest representation: each measurement becomes a
+          <em>node</em>, and the geometric or physical relationship between measurements
+          becomes an <em>edge</em>. No resampling, no imputation, no introduced
+          spatial bias.
+        </p>
+
+        <div class="callout">
+          <p>
+            <strong>Key intuition.</strong> A CNN slides a fixed kernel over a regular grid.
+            A GNN passes messages between neighbouring nodes — and you define what
+            "neighbouring" means, whether by Euclidean distance, drill-hole proximity,
+            or geological connectivity.
+          </p>
+        </div>
+
+        <p>
+          There is also a practical data-availability argument. Labelled geophysical
+          data is expensive to produce — every labelled interval requires expert time.
+          GNNs are particularly well-suited to semi-supervised settings<sup class="sidenote-ref">2</sup>
+          where a small fraction of nodes carry labels and the model propagates information
+          through the graph structure to label the rest.
+        </p>
+
+        <aside class="sidenote">
+          <span class="sn-num">2</span>
+          Semi-supervised GNNs were popularised by Kipf &amp; Welling (2017) in the
+          context of citation networks. The same idea transfers cleanly to drill-hole
+          lithology labelling.
+        </aside>
+
+        <!-- ===== Section 2 ===== -->
+        <h2 id="gnn-mechanics">2. How Graph Neural Networks Work</h2>
+
+        <p>
+          A graph <em>G = (V, E)</em> consists of a set of nodes <em>V</em> and edges
+          <em>E</em>. Each node <em>i</em> has a feature vector
+          <strong>x</strong><sub>i</sub> ∈ ℝ<sup>d</sup>. A GNN layer updates each
+          node's representation by <em>aggregating</em> information from its neighbours
+          and then <em>transforming</em> the result:
+        </p>
+
+        <!-- KaTeX display math — delimiters are $$ ... $$ -->
+        <div class="math-block">
+          $$\mathbf{h}_i^{(l+1)} = \sigma\!\left( \mathbf{W}^{(l)} \cdot \text{AGG}\!\left(\left\{ \mathbf{h}_j^{(l)} : j \in \mathcal{N}(i) \right\}\right) + \mathbf{b}^{(l)} \right)$$
+        </div>
+
+        <p>
+          where <em>𝒩(i)</em> is the neighbourhood of node <em>i</em>,
+          AGG is an aggregation function (sum, mean, or max), <strong>W</strong> is a
+          learned weight matrix, and σ is a non-linearity. Stacking <em>L</em> such
+          layers means each node receives information from nodes up to <em>L</em> hops
+          away — effectively a learnable, spatially-adaptive receptive field.
+        </p>
+
+        <h3>Graph Convolution vs. Message Passing</h3>
+
+        <p>
+          The original Graph Convolutional Network (GCN) of Kipf &amp; Welling uses
+          a symmetric normalisation of the adjacency matrix as the aggregation operator.
+          More general Message Passing Neural Networks (MPNNs) allow edge features to
+          participate in the aggregation — critical when edge weights encode physical
+          properties like inter-node distance or sensor correlation.
+        </p>
+
+        <!-- Wide figure (spans both columns) -->
+        <figure class="l-page">
+          <img src="/images/gnn/graph_construction.png" alt="Graph construction from drill hole collar locations">
+          <figcaption>
+            <strong>Figure 1.</strong> Graph constructed from drill-hole collar locations.
+            Nodes represent individual downhole measurement intervals; edges connect
+            spatially proximate intervals within a configurable radius. Edge weight
+            encodes inverse Euclidean distance.
+          </figcaption>
+        </figure>
+
+        <!-- ===== Section 3 ===== -->
+        <h2 id="construction">3. Constructing the Graph</h2>
+
+        <p>
+          The graph construction step is where most domain knowledge enters the model.
+          Three choices dominate the design space:
+        </p>
+
+        <ul>
+          <li><strong>k-NN graph</strong> — connect each node to its k nearest neighbours in 3-D space. Simple and general; k is a hyperparameter.</li>
+          <li><strong>Radius graph</strong> — connect nodes within a fixed spatial radius. Natural for sensor arrays where the physics has a known range of influence.</li>
+          <li><strong>Geology-aware graph</strong> — add edges only between nodes in the same interpreted geological unit. Requires prior interpretation but constrains propagation to physically meaningful paths.</li>
+        </ul>
+
+        <p>
+          For most interpolation tasks a radius graph with
+          <em>r</em> set to 1–2× the typical inter-hole spacing is a reasonable
+          starting point.<sup class="sidenote-ref">3</sup>
+        </p>
+
+        <aside class="sidenote">
+          <span class="sn-num">3</span>
+          Too small an <em>r</em> and the graph fragments into isolated components.
+          Too large and every node connects to every other, collapsing the structure
+          to a dense fully-connected network — expensive and no longer inductive.
+        </aside>
+
+        <!-- Standard body-width figure -->
+        <figure>
+          <img src="/images/gnn/graph_construction.png" alt="k-NN vs radius graph comparison">
+          <figcaption>
+            <strong>Figure 2.</strong> k-NN (left) and radius (right) graph for the
+            same set of drill-hole collars. The radius graph produces sparser, more
+            spatially consistent connectivity.
+          </figcaption>
+        </figure>
+
+        <!-- ===== Section 4 ===== -->
+        <h2 id="implementation">4. Implementation in PyTorch Geometric</h2>
+
+        <p>
+          <a href="https://pyg.org/" target="_blank">PyTorch Geometric</a> (PyG) is
+          the most ergonomic library for building GNNs on irregular data. The snippet
+          below constructs a radius graph from XYZ coordinates and runs a two-layer
+          GraphSAGE model:
+        </p>
+
+        <pre><code class="python">import torch
+import torch.nn.functional as F
+from torch_geometric.data import Data
+from torch_geometric.nn import SAGEConv
+from torch_geometric.transforms import RadiusGraph
+
+# --- Build graph from downhole survey coordinates ---
+# pos: (N, 3) tensor of [easting, northing, depth]
+# x:   (N, F) tensor of geophysical log values (node features)
+# y:   (N,)   tensor of lithology labels (-1 = unlabelled)
+
+transform = RadiusGraph(r=50.0)          # 50 m radius
+data = Data(pos=pos, x=x, y=y)
+data = transform(data)                   # adds data.edge_index
+
+# --- Two-layer GraphSAGE ---
+class GeoSAGE(torch.nn.Module):
+    def __init__(self, in_ch, hidden, out_ch):
+        super().__init__()
+        self.conv1 = SAGEConv(in_ch, hidden)
+        self.conv2 = SAGEConv(hidden, out_ch)
+
+    def forward(self, x, edge_index):
+        x = F.relu(self.conv1(x, edge_index))
+        x = F.dropout(x, p=0.3, training=self.training)
+        return self.conv2(x, edge_index)
+
+model = GeoSAGE(in_ch=data.x.shape[1], hidden=64, out_ch=num_classes)
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+
+# --- Semi-supervised training (labelled nodes only) ---
+mask = data.y >= 0                       # only labelled nodes contribute loss
+for epoch in range(200):
+    model.train()
+    optimizer.zero_grad()
+    out = model(data.x, data.edge_index)
+    loss = F.cross_entropy(out[mask], data.y[mask])
+    loss.backward()
+    optimizer.step()
+</code></pre>
+
+        <p>
+          The <code>mask</code> restricts the supervised loss to labelled nodes, but
+          gradient information flows through the full graph — so unlabelled nodes still
+          influence the representations of their labelled neighbours and vice versa.
+          This is the core mechanism of semi-supervised GNNs.
+        </p>
+
+        <!-- ===== Section 5 ===== -->
+        <h2 id="results">5. Results and Limitations</h2>
+
+        <p>
+          On a held-out test set of 15% of labelled intervals (stratified by
+          lithological unit), a two-layer GraphSAGE model trained with 5% of available
+          labels achieved the following:
+        </p>
+
+        <div class="key-result">
+          <p>
+            <strong>Semi-supervised GNN (5% labels):</strong> 79.4% accuracy
+            on held-out labelled nodes — compared to 61.2% for a random forest trained
+            on the same 5% of labelled data without graph structure.
+          </p>
+        </div>
+
+        <p>
+          The gap narrows as more labels are added; by ~40% label fraction the random
+          forest is competitive. The GNN's advantage is largest in the sparse-label
+          regime that typifies early-stage exploration.
+        </p>
+
+        <h3>Limitations</h3>
+
+        <p>
+          GNNs are not a free lunch. Three practical limitations are worth flagging:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Inductive vs. transductive.</strong> GraphSAGE is inductive —
+            you can add new drill holes without retraining. Older spectral GCN methods
+            are transductive and require a full retrain when new data arrives.
+          </li>
+          <li>
+            <strong>Over-smoothing.</strong> Stacking too many GNN layers causes all
+            node representations to converge to the same value (the graph equivalent of
+            blurring). Two to four layers is usually optimal for geoscience tasks.
+          </li>
+          <li>
+            <strong>Graph construction sensitivity.</strong> Results depend strongly on
+            the choice of radius or k. If domain knowledge is unavailable, treat this as
+            a hyperparameter and tune it with cross-validation.
+          </li>
+        </ul>
+
+        <!-- References -->
+        <div class="article-references">
+          <h2>References</h2>
+          <ol>
+            <li>
+              Kipf, T.N. &amp; Welling, M. (2017). Semi-supervised classification with
+              graph convolutional networks. <em>ICLR 2017</em>.
+              <a href="https://arxiv.org/abs/1609.02907" target="_blank">arXiv:1609.02907</a>
+            </li>
+            <li>
+              Hamilton, W., Ying, Z. &amp; Leskovec, J. (2017). Inductive representation
+              learning on large graphs. <em>NeurIPS 2017</em>.
+              <a href="https://arxiv.org/abs/1706.02216" target="_blank">arXiv:1706.02216</a>
+            </li>
+            <li>
+              Gillfeather-Clark, T., Horrocks, T., Holden, E.J. &amp; Wedge, D. (2021).
+              A comparative study of neural network methods for first break detection.
+              <em>Ore Geology Reviews</em>, 137, 104201.
+            </li>
+            <li>
+              Fey, M. &amp; Lenssen, J.E. (2019). Fast graph representation learning
+              with PyTorch Geometric. <em>ICLR Workshop on Representation Learning on
+              Graphs and Manifolds</em>.
+            </li>
+          </ol>
+        </div>
+
+      </div><!-- /.article-body -->
+
+    </main><!-- /.article-main -->
+
+    <footer class="footer">Tasman is a cool guy — hire him. Contact via <a href="https://www.linkedin.com/in/tasmangc/" target="_blank" class="link link--light">LinkedIn</a>.</footer>
+
+    <!-- Scripts: jQuery first, then everything else -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- KaTeX auto-render: turns $$ ... $$ blocks into math -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true  },
+            { left: "$",  right: "$",  display: false }
+          ]
+        });
+      });
+    </script>
+
+    <!-- Reading progress bar -->
+    <script>
+      window.addEventListener("scroll", function () {
+        var scrolled = document.documentElement.scrollTop;
+        var total    = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        document.getElementById("progress-bar").style.width = (scrolled / total * 100) + "%";
+      });
+    </script>
+
+    <script src="/js/scribbler.js"></script>
+  </body>
+</html>

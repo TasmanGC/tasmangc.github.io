@@ -1,0 +1,382 @@
+/* ============================================================
+   home.css — Homepage layout
+   Loads alongside scribbler-global.css (nav, footer, variables).
+   Replaces scribbler-landing.css for the index page.
+   ============================================================ */
+
+
+/* --- Hero (split layout) ------------------------------------- */
+.home-hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 5rem 1.5rem 5rem;
+}
+
+.home-hero__split {
+  max-width: 1060px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.home-hero__badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3em 0.8em;
+  border: 1.5px solid var(--primary-color);
+  border-radius: 2px;
+  color: var(--primary-color);
+}
+
+.home-hero__name {
+  font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--primary-color);
+  margin: 0 0 1.5rem;
+}
+
+.home-hero__tagline {
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--medium-gray-color);
+  margin: 0 0 2.5rem;
+}
+
+.home-hero__links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 1px;
+  transition: color 0.15s;
+}
+.hero-link:hover { color: var(--accent-color); }
+
+/* --- Quiz (right column of hero) ----------------------------- */
+.home-hero__right .home-hero__badges {
+  margin-bottom: 2rem;
+}
+
+.home-quiz__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--medium-gray-color);
+  margin: 0 0 1rem;
+}
+
+.home-quiz__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.quiz-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.25rem 1.4rem;
+  background: white;
+  border: 1.5px solid var(--code-bg-color);
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Nunito Sans', sans-serif;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.quiz-btn:hover {
+  border-color: var(--accent-color);
+  background: var(--accent-color-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(254, 106, 107, 0.15);
+}
+
+.quiz-btn__icon  { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; line-height: 1; }
+.quiz-btn__label { font-size: 0.9rem; font-weight: 700; color: var(--primary-color); display: block; margin-bottom: 0.2rem; }
+.quiz-btn__sub   { font-size: 0.75rem; color: var(--medium-gray-color); display: block; line-height: 1.4; }
+
+/* --- Content sections --------------------------------------- */
+.home-section {
+  padding: 5rem 1.5rem;
+  border-top: 1px solid var(--code-bg-color);
+}
+
+.home-section--alt {
+  background: var(--bg-color);
+}
+
+.home-section__inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.home-section__inner--center { text-align: center; }
+
+.home-section h2 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--primary-color);
+  margin: 0 0 2.5rem;
+}
+
+/* --- Section highlight (quiz scroll target) ----------------- */
+@keyframes section-pop {
+  0%, 50% { box-shadow: inset 4px 0 0 var(--accent-color); }
+  100%    { box-shadow: inset 4px 0 0 rgba(254, 106, 107, 0); }
+}
+
+.home-section.highlighted {
+  animation: section-pop 1.8s ease-out forwards;
+}
+
+/* --- Timeline (Work experience) ----------------------------- */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.timeline-date {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--medium-gray-color);
+  padding-top: 0.15rem;
+}
+
+.timeline-content h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0 0 0.15rem;
+}
+
+.timeline-org {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  margin: 0 0 0.45rem;
+}
+
+.timeline-content p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Skills tags -------------------------------------------- */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.5rem 0 1.75rem;
+}
+
+.skill-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3em 0.75em;
+  background: var(--code-bg-color);
+  border: 1px solid var(--light-gray-color);
+  border-radius: 2px;
+  color: var(--dark-gray-color);
+}
+
+/* --- CTA links ---------------------------------------------- */
+.home-cta {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--accent-color-dark);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 1px;
+  transition: color 0.15s;
+}
+.home-cta:hover { color: var(--accent-color); }
+.home-cta + .home-cta { margin-left: 1.5rem; }
+
+/* --- Publications ------------------------------------------- */
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 2rem;
+}
+
+.pub-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--code-bg-color);
+}
+.pub-item:first-child { padding-top: 0; }
+.pub-item:last-child  { border-bottom: none; }
+
+.pub-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 0.35rem;
+  line-height: 1.5;
+}
+
+.pub-meta {
+  font-size: 0.78rem;
+  color: var(--medium-gray-color);
+  margin: 0;
+}
+
+/* --- Image cards (writing section) -------------------------- */
+#writing .home-section__inner {
+  max-width: 860px;
+}
+
+.img-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.img-card {
+  display: block;
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.img-card:not(.img-card--upcoming):hover img {
+  transform: scale(1.05);
+}
+
+.img-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.18) 0%,
+    transparent 35%,
+    rgba(0, 0, 0, 0.72) 65%,
+    rgba(0, 0, 0, 0.92) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem 1.4rem;
+}
+
+.img-card__tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 2px;
+  padding: 0.2em 0.6em;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+}
+
+.img-card__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.35;
+  margin: 0 0 0.35rem;
+}
+
+.img-card__date {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.img-card--upcoming {
+  opacity: 0.55;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* --- Contact ------------------------------------------------- */
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 1px;
+  transition: color 0.15s;
+}
+.contact-link:hover { color: var(--accent-color); }
+
+/* --- Mobile -------------------------------------------------- */
+@media (max-width: 780px) {
+  .home-hero__split { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+
+@media (max-width: 640px) {
+  .home-hero        { min-height: auto; padding: 3rem 1.5rem 4rem; }
+  .home-hero__name  { font-size: 2.4rem; }
+  .timeline-item    { grid-template-columns: 1fr; gap: 0.2rem; }
+  .img-card-grid    { grid-template-columns: 1fr; }
+  .img-card         { height: 220px; }
+  .contact-links    { gap: 1rem; }
+}

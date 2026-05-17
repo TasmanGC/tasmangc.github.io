@@ -1,178 +1,198 @@
 <!doctype html>
-<style>
-  img {
-  float: left;
-  width:  200px;
-  height: 200px;
-  object-fit: cover;
-}
-</style>
-
 <html>
   <head>
-      <meta charset="utf-8">
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>TasmanGC - A cool guy with cool dreams</title>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
-      <link rel="stylesheet" href="/css/scribbler-global.css">
-      <link rel="stylesheet" href="/css/scribbler-landing.css">
-      <link rel="stylesheet" href="/lib/owlcarousel/assets/owl.carousel.min.css">
-
+    <meta charset="utf-8">
+    <meta name="description" content="Tasman Gillfeather-Clark — geoscientist and data scientist. Writing about geoscience, machine learning, and data visualisation.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TasmanGC - Geoscientist & Data Scientist</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌏</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="/css/scribbler-global.css">
+    <link rel="stylesheet" href="/css/home.css">
   </head>
-  <body>
+
+  <body class="home-page">
+
     <nav>
-      <div class="logo"></div>
+      <div class="logo">TasmanGC</div>
       <ul class="menu">
         <div class="menu__item toggle"><span></span></div>
-        <li class="menu__item"><a href="/pages/cv.html" class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
-        <li class="menu__item"><a href="" class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
-        <li class="menu__item"><a href="" class="link link--dark"><i class="fa fa-grav"></i> Projects</a></li>
-        <li class="menu__item"><a href="https://www.github.com/TasmanGC" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+        <li class="menu__item"><a href="/pages/cv.html"            class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
+        <li class="menu__item"><a href="/pages/blog.html"          class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
+        <li class="menu__item"><a href="/pages/technical.html"     class="link link--dark"><i class="fa fa-flask"></i> Technical</a></li>
+        <li class="menu__item"><a href="https://github.com/TasmanGC" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
       </ul>
     </nav>
 
-    <div class="hero">
-      <h1 class="hero__title">TasmanGC</h1>
-      <p class="hero__description">His thoughts on geoscience, data science, and the things that keep him busy on weekends.</p>
-    </div>
+    <!-- =====================================================
+         HERO + QUIZ (split layout)
+         ===================================================== -->
+    <section class="home-hero">
+      <div class="home-hero__split">
 
-    <div class="hero__terminal">
-      <pre>
-        <!-- Place your demo code here -->
-        <code class="shell-session demo">tasmangc ~ $ </code>
-      </pre>
-    </div>
+        <!-- Left: identity -->
+        <div class="home-hero__left">
+          <h1 class="home-hero__name">Tasman<br>Gillfeather-Clark</h1>
 
-    <div class="wrapper">
+          <p class="home-hero__tagline">
+            Working at the intersection of field geoscience and scalable
+            machine learning systems. I acquire the data, I know what it means,
+            and I build the tools to make sense of it at scale.
+          </p>
 
-        <!-- Featured News Slider Start -->
-        <div class="container-fluid pt-5 mb-3">
-          <div class="container">
-              <div class="section-title">
-                  <h4 class="m-0 text-uppercase font-weight-bold">Blog Entries</h4>
-              </div>
-              <div class="owl-carousel news-carousel carousel-item-4 position-relative">
-                  <!-- <div class="position-relative overflow-hidden" style="height: 300px;">
-                      <img class="img-fluid h-100" src="images/som/som_no_dtm.png" style="object-fit: cover;">
-                      <div class="overlay">
-                          <div class="mb-2">
-                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                  href="">Machine Learning</a>
-                              <a class="text-white" href=""><small>April 04, 2023</small></a>
-                          </div>
-                          <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">The dos and don'ts of clustering. A SOM retrospective.</a>
-                      </div>
-                  </div> -->
-                  <div class="position-relative overflow-hidden" style="height: 300px;">
-                      <img class="img-fluid h-100" src="images/faa_UWA_1.jpg" style="object-fit: cover;">
-                      <div class="overlay">
-                          <div class="mb-2">
-                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                  href="">Team Communication</a>
-                              <a class="text-white" href=""><small>May 05, 2023</small></a>
-                          </div>
-                          <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="/posts/cross_discipline_collaboration.html">Dynamics of cross disciplinary teams. How my NGEA team made the most of it's mentors.</a>
-                      </div>
-                  </div>
-                  <div class="position-relative overflow-hidden" style="height: 300px;">
-                      <img class="img-fluid h-100" src="images/cobar.jpg" style="object-fit: cover;">
-                      <div class="overlay">
-                          <div class="mb-2">
-                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                  href="">Geoscience</a>
-                              <a class="text-white" href=""><small>Jun 07, 2023</small></a>
-                          </div>
-                          <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="/posts/geoscience_datascience.html">You've heard of Exploration Geoscience but what about Exploration Datscience?</a>
-                      </div>
-                  </div>
-                  <div class="position-relative overflow-hidden" style="height: 300px;">
-                      <img class="img-fluid h-100" src="/images/earth_blender/geophysics.png" style="object-fit: cover;">
-                      <div class="overlay">
-                          <div class="mb-2">
-                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                  href="">Data Visualisation</a>
-                              <a class="text-white" href=""><small>Sept 15, 2023 (Upcoming)</small></a>
-                          </div>
-                          <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">What modern rendering can do for your geophysical interpretations - Earth Blender</a>
-                      </div>
-                  </div>
-                  <div class="position-relative overflow-hidden" style="height: 300px;">
-                      <img class="img-fluid h-100" src="/images/gnn/graph_construction.png" style="object-fit: cover;">
-                      <div class="overlay">
-                          <div class="mb-2">
-                              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                  href="">Machine Learning</a>
-                              <a class="text-white" href=""><small>Oct 15, 2023 (Upcoming)</small></a>
-                          </div>
-                          <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href=""> A new type of Neural network with interesting applications - Graph Neural Networks</a>
-                      </div>
-                  </div>
-              </div>
+          <div class="skills-grid">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">PyVista</span>
+            <span class="skill-tag">Keras</span>
+            <span class="skill-tag">Graph Neural Networks</span>
+            <span class="skill-tag">Geophysics</span>
+            <span class="skill-tag">Seismic Interpretation</span>
+            <span class="skill-tag">Cloud Deployment</span>
+            <span class="skill-tag">Matlab</span>
           </div>
+
+        </div>
+
+        <!-- Right: badges + quiz -->
+        <div class="home-hero__right">
+          <div class="home-hero__badges">
+            <span class="badge">Geoscientist</span>
+            <span class="badge">Data Scientist</span>
+            <span class="badge">PhD</span>
+          </div>
+          <p class="home-quiz__label">What brings you here?</p>
+          <div class="home-quiz__options">
+
+            <button class="quiz-btn" data-target="contact">
+              <span class="quiz-btn__icon">👔</span>
+              <span class="quiz-btn__label">Hiring</span>
+              <span class="quiz-btn__sub">Experience &amp; skills</span>
+            </button>
+
+            <button class="quiz-btn" data-target="writing">
+              <span class="quiz-btn__icon">🔬</span>
+              <span class="quiz-btn__label">Collaborating</span>
+              <span class="quiz-btn__sub">Research &amp; publications</span>
+            </button>
+
+            <button class="quiz-btn" data-target="writing">
+              <span class="quiz-btn__icon">📖</span>
+              <span class="quiz-btn__label">Reading</span>
+              <span class="quiz-btn__sub">Articles &amp; blog posts</span>
+            </button>
+
+            <button class="quiz-btn" data-target="contact">
+              <span class="quiz-btn__icon">👋</span>
+              <span class="quiz-btn__label">Saying hi</span>
+              <span class="quiz-btn__sub">Get in touch</span>
+            </button>
+
+          </div>
+        </div>
+
       </div>
-      <!-- Featured News Slider End -->
+    </section>
 
+    <!-- =====================================================
+         WRITING  (Reading target)
+         ===================================================== -->
+    <section class="home-section" id="writing">
+      <div class="home-section__inner">
 
-        <div class="installation">
-          <h3 class="section__title">Contact</h3>
-          <div class="tab__container">
-            <ul class="tab__menu">
-              <li class="tab active" data-tab="e">email</li>
-              <li class="tab" data-tab="t">twitter</li>
-              <li class="tab" data-tab="g">github</li>
-            </ul>
-            <pre class="nohighlight code">
-              <code class="tab__pane active e">tasman.gc@gmail.com</code>
-              <code class="tab__pane t">https://twitter.com/tasmangc</code>
-              <code class="tab__pane g">github.com/TasmanGC</code>
-            </pre>
+        <h2>Writing</h2>
+
+        <div class="img-card-grid">
+
+          <a href="/technical/gnn_geophysics.html" class="img-card">
+            <img src="/images/gnn/graph_construction.png" alt="Graph Neural Networks">
+            <div class="img-card__overlay">
+              <span class="img-card__tag">Technical</span>
+              <h3 class="img-card__title">Graph Neural Networks for Geophysical Applications</h3>
+              <span class="img-card__date">October 2023</span>
+            </div>
+          </a>
+
+          <a href="/posts/geoscience_datascience.html" class="img-card">
+            <img src="/images/cobar.jpg" alt="Exploration Geoscience">
+            <div class="img-card__overlay">
+              <span class="img-card__tag">Blog</span>
+              <h3 class="img-card__title">Exploration Geoscience &amp; Data Science</h3>
+              <span class="img-card__date">2023</span>
+            </div>
+          </a>
+
+          <a href="/posts/cross_discipline_collaboration.html" class="img-card">
+            <img src="/images/faa_UWA_1.jpg" alt="Cross-Disciplinary Team">
+            <div class="img-card__overlay">
+              <span class="img-card__tag">Blog</span>
+              <h3 class="img-card__title">Cross-Disciplinary Team Dynamics</h3>
+              <span class="img-card__date">2022</span>
+            </div>
+          </a>
+
+          <div class="img-card img-card--upcoming">
+            <img src="/images/earth_blender/geophysics.png" alt="Modern Rendering">
+            <div class="img-card__overlay">
+              <span class="img-card__tag">Technical</span>
+              <h3 class="img-card__title">Modern Rendering for Geophysical Interpretation</h3>
+              <span class="img-card__date">Upcoming</span>
+            </div>
           </div>
+
         </div>
 
-        <div class="feature">
-          <div class="feature__item">
-            <h3 class="section__title">Software Developer</h3>
-            <p>Python (Pytorch, Keras, Pyvista), Matlab, R if I have to, HTML</p>
-          </div>
+        <a href="/pages/blog.html" class="home-cta">All blog posts →</a>
+        <a href="/pages/technical.html" class="home-cta">All technical articles →</a>
 
-          <div class="feature__item">
-            <h3 class="section__title">Team Professional</h3>
-            <p>I don't know everything, that's why I work with others to get the best results.
-            </p>
-          </div>
+      </div>
+    </section>
 
-          <div class="feature__item">
-            <h3 class="section__title">Geophysicist</h3>
-            <p>I've worked with and aquired geophysical data from many parts of the world.</p>
-          </div>
+    <!-- =====================================================
+         CONTACT  (Saying hi target)
+         ===================================================== -->
+    <section class="home-section home-section--alt" id="contact">
+      <div class="home-section__inner home-section__inner--center">
 
-          <div class="feature__item">
-            <h3 class="section__title">Data Scientist</h3>
-            <p>Not just a script on my desktop, a tested production system on the cloud.</p>
-          </div>
+        <h2>Get in Touch</h2>
+        <p>Open to research collaborations, interesting technical problems, and the occasional good story from the field.</p>
+
+        <div class="contact-links">
+          <a href="mailto:tasman.gc@gmail.com" class="contact-link">
+            <i class="fa fa-envelope"></i> tasman.gc@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/tasmangc/" target="_blank" class="contact-link">
+            <i class="fa fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/TasmanGC" target="_blank" class="contact-link">
+            <i class="fa fa-github"></i> GitHub
+          </a>
         </div>
 
-        <div class="callout">
-          <p>Read my CV to learn more about my Experience</p>
-          <a href="/pages/cv.html" class="button--primary">CV</a>
-        </div>
-  
+      </div>
+    </section>
 
-        <footer class="footer"> This website was adapted from  <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light">Codrops</a> they're a great project check them out!</footer>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script src="/js/scribbler.js"></script>
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="/lib/easing/easing.min.js"></script>
-        <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
-        
-        <!-- Template Javascript -->
-      <script src="/js/main.js"></script>
+    <footer class="footer">Originally based on a <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light">Codrops</a> template &middot; Revised with <a href="https://claude.ai" target="_blank" class="link link--light">Claude Sonnet 4.6</a></footer>
+
+    <!-- Quiz: smooth-scroll + section highlight -->
+    <script>
+      document.querySelectorAll('.quiz-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = document.getElementById(btn.dataset.target);
+          if (!target) return;
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.classList.remove('highlighted');
+          void target.offsetWidth; // force reflow so animation restarts
+          target.classList.add('highlighted');
+          target.addEventListener('animationend', function () {
+            target.classList.remove('highlighted');
+          }, { once: true });
+        });
+      });
+    </script>
+
+    <script src="/js/scribbler.js"></script>
+
   </body>
 </html>

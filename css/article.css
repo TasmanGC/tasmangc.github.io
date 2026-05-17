@@ -1,0 +1,375 @@
+/* ============================================================
+   article.css — Distill-inspired layout for technical posts
+   Load alongside scribbler-global.css (handles nav + footer).
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Source+Code+Pro:wght@400;500&display=swap');
+
+:root {
+  --art-text-col:  680px;
+  --art-side-col:  210px;
+  --art-col-gap:    40px;
+  --art-max:       calc(var(--art-text-col) + var(--art-col-gap) + var(--art-side-col));
+
+  --art-font-body: 'Merriweather', Georgia, 'Times New Roman', serif;
+  --art-font-ui:   'Nunito Sans', -apple-system, sans-serif;
+  --art-font-code: 'Source Code Pro', 'Fira Code', 'Space Mono', monospace;
+
+  --art-primary:   #432E30;
+  --art-accent:    #FE6A6B;
+  --art-accent-lt: #FFE4E4;
+  --art-muted:     #777;
+  --art-subtle:    #aaa;
+  --art-border:    #E8E0E0;
+  --art-bg-code:   #F6F0F0;
+}
+
+/* --- Reading Progress Bar ---------------------------------- */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--art-accent);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* --- Article wrapper --------------------------------------- */
+.article-main {
+  font-family: var(--art-font-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--art-primary);
+}
+
+/* --- Article Header ---------------------------------------- */
+.article-header {
+  max-width: var(--art-text-col);
+  margin: 3.5rem auto 2.5rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.article-header .category {
+  display: block;
+  font-family: var(--art-font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--art-accent);
+  margin-bottom: 1rem;
+}
+
+.article-header h1 {
+  font-family: var(--art-font-body);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--art-primary);
+  margin: 0 0 1rem;
+}
+
+.article-header .subtitle {
+  font-family: var(--art-font-body);
+  font-size: 1.1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--art-muted);
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
+
+.article-byline {
+  font-family: var(--art-font-ui);
+  font-size: 0.85rem;
+  color: var(--art-muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.article-byline .author { font-weight: 700; color: var(--art-primary); }
+.article-byline .sep    { color: var(--art-subtle); }
+
+/* --- Abstract --------------------------------------------- */
+.article-abstract {
+  max-width: var(--art-text-col);
+  margin: 0 auto 2.5rem;
+  padding: 1.25rem 1.75rem;
+  border-left: 3px solid var(--art-accent);
+  background: var(--art-accent-lt);
+  font-family: var(--art-font-ui);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--art-muted);
+}
+.article-abstract p:last-child { margin-bottom: 0; }
+.article-abstract strong       { color: var(--art-primary); }
+
+/* --- Table of Contents ------------------------------------ */
+.article-toc {
+  max-width: var(--art-text-col);
+  margin: 0 auto 2.5rem;
+  padding: 0 1.5rem;
+  font-family: var(--art-font-ui);
+}
+.article-toc h4 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--art-muted);
+  margin: 0 0 0.6rem;
+}
+.article-toc ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  font-size: 0.88rem;
+  color: var(--art-muted);
+}
+.article-toc li      { margin-bottom: 0.3rem; }
+.article-toc a       { color: var(--art-primary); text-decoration: none; border-bottom: 1px solid var(--art-border); }
+.article-toc a:hover { border-color: var(--art-accent); color: var(--art-accent); }
+
+.article-divider {
+  max-width: var(--art-text-col);
+  margin: 0 auto 2.5rem;
+  border: none;
+  border-top: 1px solid var(--art-border);
+}
+
+/* --- Two-Column Article Grid ------------------------------ */
+/*
+   Wide:   [680px text] [40px gap] [210px sidenotes]
+   Narrow: single column, sidenotes become inline callouts
+*/
+.article-body {
+  max-width: var(--art-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: var(--art-text-col) var(--art-side-col);
+  column-gap: var(--art-col-gap);
+  align-items: start;
+}
+
+/* Everything goes in the text column by default */
+.article-body > * { grid-column: 1; }
+
+/* --- Figures ---------------------------------------------- */
+/* Standard: text column width */
+.article-body figure { margin: 2rem 0; }
+
+/* Wider: spans both columns */
+.article-body figure.l-page {
+  grid-column: 1 / -1;
+  margin: 2rem 0;
+}
+
+/* Full bleed (breaks padding) */
+.article-body figure.l-screen {
+  grid-column: 1 / -1;
+  width: calc(100% + 3rem);
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
+figcaption {
+  font-family: var(--art-font-ui);
+  font-size: 0.8rem;
+  color: var(--art-muted);
+  line-height: 1.5;
+  margin-top: 0.6rem;
+}
+figcaption strong { color: var(--art-primary); }
+
+/* --- Sidenotes -------------------------------------------- */
+.sidenote {
+  grid-column: 2;
+  font-family: var(--art-font-ui);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--art-muted);
+  border-top: 1px solid var(--art-border);
+  padding-top: 0.5rem;
+}
+
+.sidenote-ref {
+  font-family: var(--art-font-ui);
+  font-size: 0.7em;
+  vertical-align: super;
+  font-weight: 700;
+  color: var(--art-accent);
+  line-height: 0;
+  margin: 0 1px;
+}
+
+.sidenote .sn-num {
+  font-size: 0.7em;
+  vertical-align: super;
+  font-weight: 700;
+  color: var(--art-accent);
+  margin-right: 3px;
+}
+
+/* --- Typography ------------------------------------------- */
+.article-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--art-primary);
+  margin: 3rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--art-border);
+}
+
+.article-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--art-primary);
+  margin: 2rem 0 0.6rem;
+}
+
+.article-body p  { margin: 0 0 1.3rem; }
+
+.article-body a {
+  color: var(--art-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--art-accent);
+  transition: background 0.15s;
+}
+.article-body a:hover { background: var(--art-accent-lt); }
+
+.article-body ul,
+.article-body ol {
+  padding-left: 1.5rem;
+  margin: 0 0 1.3rem;
+}
+.article-body li { margin-bottom: 0.4rem; }
+
+/* --- Code ------------------------------------------------- */
+.article-body pre {
+  background: var(--art-bg-code);
+  border: 1px solid var(--art-border);
+  border-radius: 4px;
+  padding: 1.1rem 1.4rem;
+  overflow-x: auto;
+  font-family: var(--art-font-code);
+  font-size: 0.83rem;
+  line-height: 1.65;
+  margin: 1.5rem 0;
+}
+
+.article-body code {
+  font-family: var(--art-font-code);
+  font-size: 0.85em;
+  background: var(--art-bg-code);
+  border: 1px solid var(--art-border);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+}
+
+.article-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* --- Math (KaTeX display blocks) -------------------------- */
+.math-block {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+/* --- Callout boxes ---------------------------------------- */
+.callout {
+  background: var(--art-accent-lt);
+  border-left: 3px solid var(--art-accent);
+  padding: 1rem 1.4rem;
+  margin: 1.5rem 0;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.95rem;
+}
+.callout p:last-child { margin-bottom: 0; }
+
+.key-result {
+  border: 2px solid var(--art-accent);
+  border-radius: 6px;
+  padding: 1.1rem 1.4rem;
+  margin: 2rem 0;
+  background: var(--art-accent-lt);
+}
+.key-result p { margin: 0; }
+
+/* --- References ------------------------------------------- */
+.article-references {
+  grid-column: 1;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--art-border);
+}
+.article-references h2 {
+  font-family: var(--art-font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--art-muted);
+  margin: 0 0 1.25rem;
+  border-top: none;
+  padding-top: 0;
+}
+.article-references ol {
+  padding-left: 1.5rem;
+  font-size: 0.85rem;
+  font-family: var(--art-font-ui);
+  color: var(--art-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+.article-references li { margin-bottom: 0.7rem; }
+
+/* --- Narrow screens --------------------------------------- */
+@media (max-width: 960px) {
+  .article-body {
+    grid-template-columns: 1fr;
+    max-width: var(--art-text-col);
+  }
+
+  .article-body figure.l-page,
+  .article-body figure.l-screen {
+    grid-column: 1;
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .sidenote {
+    grid-column: 1;
+    border-top: none;
+    border-left: 2px solid var(--art-accent);
+    padding: 0.5rem 0.75rem;
+    background: var(--art-accent-lt);
+    font-size: 0.82rem;
+    margin: 0.5rem 0 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .article-header h1 { font-size: 1.7rem; }
+  .article-header    { margin-top: 2rem; }
+}
