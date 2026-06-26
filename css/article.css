@@ -249,18 +249,17 @@ figcaption strong { color: var(--primary-color); }
 .article-body li { margin-bottom: 0.4rem; }
 
 /* --- Code ------------------------------------------------- */
+/* pre layout only — background/padding/border-radius owned by the hljs theme */
 .article-body pre {
-  background: var(--code-bg-color);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  padding: 1.1rem 1.4rem;
   overflow-x: auto;
   font-family: var(--font-code);
   font-size: 0.83rem;
   line-height: 1.65;
   margin: 1.5rem 0;
+  border-radius: 4px;
 }
 
+/* inline code (not inside pre) */
 .article-body code {
   font-family: var(--font-code);
   font-size: 0.85em;
@@ -270,11 +269,12 @@ figcaption strong { color: var(--primary-color); }
   padding: 0.1em 0.35em;
 }
 
+/* code inside pre — hljs theme owns background, padding, and colour */
 .article-body pre code {
-  background: none;
   border: none;
   padding: 0;
   font-size: inherit;
+  border-radius: 0;
 }
 
 /* --- Math (KaTeX display blocks) -------------------------- */

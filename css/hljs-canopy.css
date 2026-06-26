@@ -1,0 +1,83 @@
+/*
+  hljs-canopy — mid-tone dark green code blocks
+  Slightly lighter than Forest; higher contrast, more vivid gold.
+  Good if Forest feels too heavy alongside the article body.
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1.1rem 1.4rem;
+  background: #243C2E;
+  color: #F0EBE0;
+  border-radius: 4px;
+  font-size: 0.83rem;
+  line-height: 1.65;
+}
+
+/* keywords */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-addition {
+  color: #E8C058;
+  font-weight: 700;
+}
+
+/* string literals */
+.hljs-string,
+.hljs-meta .hljs-meta-string {
+  color: #72C890;
+}
+
+/* numbers, booleans */
+.hljs-number,
+.hljs-literal,
+.hljs-doctag {
+  color: #D4A84A;
+}
+
+/* function / class names */
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-type {
+  color: #A0D8B8;
+  font-weight: 600;
+}
+
+/* built-in functions */
+.hljs-built_in {
+  color: #D8B854;
+}
+
+/* comments */
+.hljs-comment,
+.hljs-quote {
+  color: #5A8068;
+  font-style: italic;
+}
+
+/* variables, attributes */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-selector-attr {
+  color: #C0DCC8;
+}
+
+/* regex */
+.hljs-regexp {
+  color: #72C890;
+}
+
+/* params */
+.hljs-params {
+  color: #E0D8C8;
+}
+
+/* deletion */
+.hljs-deletion {
+  color: #D07868;
+}
+
+.hljs-strong { font-weight: bold; }
+.hljs-emphasis { font-style: italic; }

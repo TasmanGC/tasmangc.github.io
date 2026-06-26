@@ -1,0 +1,85 @@
+/*
+  hljs-parchment — warm light code blocks
+  Bone background, deep green text, dark gold keywords.
+  Pairs with the page's bone-white surfaces.
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1.1rem 1.4rem;
+  background: #E8E0CC;
+  color: #2A4A38;
+  border-radius: 4px;
+  border: 1px solid #D0C8B4;
+  font-size: 0.83rem;
+  line-height: 1.65;
+}
+
+/* keywords */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-addition {
+  color: #7A5C1E;
+  font-weight: 700;
+}
+
+/* string literals */
+.hljs-string,
+.hljs-meta .hljs-meta-string {
+  color: #2E6045;
+}
+
+/* numbers, booleans */
+.hljs-number,
+.hljs-literal,
+.hljs-doctag {
+  color: #9A7D32;
+  font-weight: 600;
+}
+
+/* function / class names */
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-type {
+  color: #1C3D2A;
+  font-weight: 700;
+}
+
+/* built-in functions */
+.hljs-built_in {
+  color: #8A6820;
+}
+
+/* comments */
+.hljs-comment,
+.hljs-quote {
+  color: #7A8E7E;
+  font-style: italic;
+}
+
+/* variables, attributes */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-selector-attr {
+  color: #3D6B50;
+}
+
+/* regex */
+.hljs-regexp {
+  color: #4A7A5E;
+}
+
+/* params */
+.hljs-params {
+  color: #4A4A38;
+}
+
+/* deletion */
+.hljs-deletion {
+  color: #8A3020;
+}
+
+.hljs-strong { font-weight: bold; }
+.hljs-emphasis { font-style: italic; }

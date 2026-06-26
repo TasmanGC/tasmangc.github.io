@@ -1,11 +1,11 @@
 /* css variables*/
 :root {
   /* Brand colours */
-  --primary-color: #2A4A38;
-  --primary-color-light: #527A63;
-  --accent-color: #C8A84A;
-  --accent-color-light: #F4EDD0;
-  --accent-color-dark: #9A7D32;
+  --primary-color: #00693E;
+  --primary-color-light: #2E8B57;
+  --accent-color: #C4942A;
+  --accent-color-light: #F5EBCC;
+  --accent-color-dark: #8B6000;
 
   /* Neutrals */
   --white-color: #FDFCF8;
