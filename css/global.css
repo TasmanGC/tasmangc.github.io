@@ -1,23 +1,36 @@
 /* css variables*/
 :root {
-  --primary-color: #432E30;
-  --primary-color-light: #8E7474;
-  --accent-color: #FE6A6B;
-  --accent-color-light: #FFE4E4;
-  --accent-color-dark: #B94B4C;
-  --white-color: #FAFBFC;
-  --light-gray-color: #C6CBD1;
-  --medium-gray-color: #959DA5;
-  --dark-gray-color: #444D56; 
-  --bg-color: #F8F8FA;
-  --code-bg-color: #F0E8E8;
+  /* Brand colours */
+  --primary-color: #2A4A38;
+  --primary-color-light: #527A63;
+  --accent-color: #C8A84A;
+  --accent-color-light: #F4EDD0;
+  --accent-color-dark: #9A7D32;
+
+  /* Neutrals */
+  --white-color: #FDFCF8;
+  --light-gray-color: #C8C4BC;
+  --medium-gray-color: #8A8880;
+  --dark-gray-color: #3A3A38;
+  --muted-color: #6B6860;
+  --subtle-color: #A8A49C;
+
+  /* Surfaces */
+  --bg-color: #F5F0E8;
+  --code-bg-color: #EDE8DA;
+  --border-color: #DDD8CC;
+
+  /* Typography */
+  --font-ui:   'Nunito Sans', -apple-system, sans-serif;
+  --font-body: 'Merriweather', Georgia, 'Times New Roman', serif;
+  --font-code: 'Source Code Pro', 'Fira Code', 'Space Mono', monospace;
 }
 
 /* normalized */
 html, body {
   padding: 0;
   margin: 0;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: var(--font-ui);
   background-color: white;
 }
 
@@ -161,7 +174,7 @@ hr {
 }
 
 .link--dark {
-  color: var(--primary-color);
+  color: var(--white-color);
 }
 
 .link--light {
@@ -169,10 +182,10 @@ hr {
 }
 
 /* menu */
-nav {
+body > nav {
   display: grid;
   grid-template-columns: auto 1fr;
-  background-color: var(--bg-color);
+  background-color: var(--primary-color);
   padding: 0 0.5rem;
 }
 
@@ -180,7 +193,7 @@ nav {
   font-weight: 900;
   font-size: 1rem;
   letter-spacing: -0.02em;
-  color: var(--primary-color);
+  color: var(--white-color);
   padding: 1rem 0.5rem 1rem 1rem;
   white-space: nowrap;
 }
@@ -205,7 +218,7 @@ nav {
   height: 2px;
   width: 18px;
   border-radius: 2px;
-  background: var(--primary-color);
+  background: var(--white-color);
   display: block;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -273,7 +286,7 @@ table td:first-child {
 }
 
 @media screen and (max-width: 600px) {
-  nav {
+  body > nav {
     grid-template-columns: auto 1fr;
   }
 

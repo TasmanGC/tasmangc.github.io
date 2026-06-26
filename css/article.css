@@ -1,27 +1,16 @@
 /* ============================================================
    article.css — Distill-inspired layout for technical posts
-   Load alongside scribbler-global.css (handles nav + footer).
+   Load alongside global.css (handles nav + footer).
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Source+Code+Pro:wght@400;500&display=swap');
 
+/* Article-specific layout tokens (colours/fonts from global.css) */
 :root {
-  --art-text-col:  680px;
-  --art-side-col:  210px;
-  --art-col-gap:    40px;
-  --art-max:       calc(var(--art-text-col) + var(--art-col-gap) + var(--art-side-col));
-
-  --art-font-body: 'Merriweather', Georgia, 'Times New Roman', serif;
-  --art-font-ui:   'Nunito Sans', -apple-system, sans-serif;
-  --art-font-code: 'Source Code Pro', 'Fira Code', 'Space Mono', monospace;
-
-  --art-primary:   #432E30;
-  --art-accent:    #FE6A6B;
-  --art-accent-lt: #FFE4E4;
-  --art-muted:     #777;
-  --art-subtle:    #aaa;
-  --art-border:    #E8E0E0;
-  --art-bg-code:   #F6F0F0;
+  --art-text-col: 680px;
+  --art-side-col: 210px;
+  --art-col-gap:   40px;
+  --art-max: calc(var(--art-text-col) + var(--art-col-gap) + var(--art-side-col));
 }
 
 /* --- Reading Progress Bar ---------------------------------- */
@@ -30,17 +19,17 @@
   top: 0; left: 0;
   height: 3px;
   width: 0%;
-  background: var(--art-accent);
+  background: var(--accent-color);
   z-index: 9999;
   transition: width 0.1s linear;
 }
 
 /* --- Article wrapper --------------------------------------- */
 .article-main {
-  font-family: var(--art-font-body);
+  font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.85;
-  color: var(--art-primary);
+  color: var(--primary-color);
 }
 
 /* --- Article Header ---------------------------------------- */
@@ -53,93 +42,93 @@
 
 .article-header .category {
   display: block;
-  font-family: var(--art-font-ui);
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--art-accent);
+  color: var(--accent-color);
   margin-bottom: 1rem;
 }
 
 .article-header h1 {
-  font-family: var(--art-font-body);
+  font-family: var(--font-body);
   font-size: 2.2rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  color: var(--art-primary);
+  color: var(--primary-color);
   margin: 0 0 1rem;
 }
 
 .article-header .subtitle {
-  font-family: var(--art-font-body);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   font-weight: 300;
   font-style: italic;
-  color: var(--art-muted);
+  color: var(--muted-color);
   line-height: 1.6;
   margin: 0 0 2rem;
 }
 
 .article-byline {
-  font-family: var(--art-font-ui);
+  font-family: var(--font-ui);
   font-size: 0.85rem;
-  color: var(--art-muted);
+  color: var(--muted-color);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
-.article-byline .author { font-weight: 700; color: var(--art-primary); }
-.article-byline .sep    { color: var(--art-subtle); }
+.article-byline .author { font-weight: 700; color: var(--primary-color); }
+.article-byline .sep    { color: var(--subtle-color); }
 
 /* --- Abstract --------------------------------------------- */
 .article-abstract {
   max-width: var(--art-text-col);
   margin: 0 auto 2.5rem;
   padding: 1.25rem 1.75rem;
-  border-left: 3px solid var(--art-accent);
-  background: var(--art-accent-lt);
-  font-family: var(--art-font-ui);
+  border-left: 3px solid var(--accent-color);
+  background: var(--accent-color-light);
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   line-height: 1.7;
-  color: var(--art-muted);
+  color: var(--muted-color);
 }
 .article-abstract p:last-child { margin-bottom: 0; }
-.article-abstract strong       { color: var(--art-primary); }
+.article-abstract strong       { color: var(--primary-color); }
 
 /* --- Table of Contents ------------------------------------ */
 .article-toc {
   max-width: var(--art-text-col);
   margin: 0 auto 2.5rem;
   padding: 0 1.5rem;
-  font-family: var(--art-font-ui);
+  font-family: var(--font-ui);
 }
 .article-toc h4 {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--art-muted);
+  color: var(--muted-color);
   margin: 0 0 0.6rem;
 }
 .article-toc ol {
   margin: 0;
   padding-left: 1.25rem;
   font-size: 0.88rem;
-  color: var(--art-muted);
+  color: var(--muted-color);
 }
 .article-toc li      { margin-bottom: 0.3rem; }
-.article-toc a       { color: var(--art-primary); text-decoration: none; border-bottom: 1px solid var(--art-border); }
-.article-toc a:hover { border-color: var(--art-accent); color: var(--art-accent); }
+.article-toc a       { color: var(--primary-color); text-decoration: none; border-bottom: 1px solid var(--border-color); }
+.article-toc a:hover { border-color: var(--accent-color); color: var(--accent-color); }
 
 .article-divider {
   max-width: var(--art-text-col);
   margin: 0 auto 2.5rem;
   border: none;
-  border-top: 1px solid var(--art-border);
+  border-top: 1px solid var(--border-color);
 }
 
 /* --- Two-Column Article Grid ------------------------------ */
@@ -186,31 +175,31 @@ figure img {
 }
 
 figcaption {
-  font-family: var(--art-font-ui);
+  font-family: var(--font-ui);
   font-size: 0.8rem;
-  color: var(--art-muted);
+  color: var(--muted-color);
   line-height: 1.5;
   margin-top: 0.6rem;
 }
-figcaption strong { color: var(--art-primary); }
+figcaption strong { color: var(--primary-color); }
 
 /* --- Sidenotes -------------------------------------------- */
 .sidenote {
   grid-column: 2;
-  font-family: var(--art-font-ui);
+  font-family: var(--font-ui);
   font-size: 0.78rem;
   line-height: 1.55;
-  color: var(--art-muted);
-  border-top: 1px solid var(--art-border);
+  color: var(--muted-color);
+  border-top: 1px solid var(--border-color);
   padding-top: 0.5rem;
 }
 
 .sidenote-ref {
-  font-family: var(--art-font-ui);
+  font-family: var(--font-ui);
   font-size: 0.7em;
   vertical-align: super;
   font-weight: 700;
-  color: var(--art-accent);
+  color: var(--accent-color);
   line-height: 0;
   margin: 0 1px;
 }
@@ -219,7 +208,7 @@ figcaption strong { color: var(--art-primary); }
   font-size: 0.7em;
   vertical-align: super;
   font-weight: 700;
-  color: var(--art-accent);
+  color: var(--accent-color);
   margin-right: 3px;
 }
 
@@ -229,28 +218,28 @@ figcaption strong { color: var(--art-primary); }
   font-weight: 700;
   line-height: 1.3;
   letter-spacing: -0.01em;
-  color: var(--art-primary);
+  color: var(--primary-color);
   margin: 3rem 0 1rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--art-border);
+  border-top: 1px solid var(--border-color);
 }
 
 .article-body h3 {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--art-primary);
+  color: var(--primary-color);
   margin: 2rem 0 0.6rem;
 }
 
 .article-body p  { margin: 0 0 1.3rem; }
 
 .article-body a {
-  color: var(--art-primary);
+  color: var(--primary-color);
   text-decoration: none;
-  border-bottom: 1px solid var(--art-accent);
+  border-bottom: 1px solid var(--accent-color);
   transition: background 0.15s;
 }
-.article-body a:hover { background: var(--art-accent-lt); }
+.article-body a:hover { background: var(--accent-color-light); }
 
 .article-body ul,
 .article-body ol {
@@ -261,22 +250,22 @@ figcaption strong { color: var(--art-primary); }
 
 /* --- Code ------------------------------------------------- */
 .article-body pre {
-  background: var(--art-bg-code);
-  border: 1px solid var(--art-border);
+  background: var(--code-bg-color);
+  border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 1.1rem 1.4rem;
   overflow-x: auto;
-  font-family: var(--art-font-code);
+  font-family: var(--font-code);
   font-size: 0.83rem;
   line-height: 1.65;
   margin: 1.5rem 0;
 }
 
 .article-body code {
-  font-family: var(--art-font-code);
+  font-family: var(--font-code);
   font-size: 0.85em;
-  background: var(--art-bg-code);
-  border: 1px solid var(--art-border);
+  background: var(--code-bg-color);
+  border: 1px solid var(--border-color);
   border-radius: 3px;
   padding: 0.1em 0.35em;
 }
@@ -297,8 +286,8 @@ figcaption strong { color: var(--art-primary); }
 
 /* --- Callout boxes ---------------------------------------- */
 .callout {
-  background: var(--art-accent-lt);
-  border-left: 3px solid var(--art-accent);
+  background: var(--accent-color-light);
+  border-left: 3px solid var(--accent-color);
   padding: 1rem 1.4rem;
   margin: 1.5rem 0;
   border-radius: 0 4px 4px 0;
@@ -307,11 +296,11 @@ figcaption strong { color: var(--art-primary); }
 .callout p:last-child { margin-bottom: 0; }
 
 .key-result {
-  border: 2px solid var(--art-accent);
+  border: 2px solid var(--accent-color);
   border-radius: 6px;
   padding: 1.1rem 1.4rem;
   margin: 2rem 0;
-  background: var(--art-accent-lt);
+  background: var(--accent-color-light);
 }
 .key-result p { margin: 0; }
 
@@ -320,15 +309,15 @@ figcaption strong { color: var(--art-primary); }
   grid-column: 1;
   margin-top: 3.5rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--art-border);
+  border-top: 1px solid var(--border-color);
 }
 .article-references h2 {
-  font-family: var(--art-font-ui);
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--art-muted);
+  color: var(--muted-color);
   margin: 0 0 1.25rem;
   border-top: none;
   padding-top: 0;
@@ -336,8 +325,8 @@ figcaption strong { color: var(--art-primary); }
 .article-references ol {
   padding-left: 1.5rem;
   font-size: 0.85rem;
-  font-family: var(--art-font-ui);
-  color: var(--art-muted);
+  font-family: var(--font-ui);
+  color: var(--muted-color);
   line-height: 1.65;
   margin: 0;
 }
@@ -361,9 +350,9 @@ figcaption strong { color: var(--art-primary); }
   .sidenote {
     grid-column: 1;
     border-top: none;
-    border-left: 2px solid var(--art-accent);
+    border-left: 2px solid var(--accent-color);
     padding: 0.5rem 0.75rem;
-    background: var(--art-accent-lt);
+    background: var(--accent-color-light);
     font-size: 0.82rem;
     margin: 0.5rem 0 1.25rem;
   }

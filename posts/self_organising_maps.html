@@ -1,166 +1,149 @@
 <!doctype html>
-
-
-
-<html>
+<html lang="en">
   <head>
-    <style>
-      .column {
-  float: left;
-  width: 33.3%;
-  padding: 2px;
-}
-.column2 {
-  float: left;
-  width: 50%;
-  padding: 1px;
-}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-    
-    </style>
     <meta charset="utf-8">
-    <meta name="description" content="">
+    <meta name="description" content="A case study applying self-organising maps to land classification at Broken Hill — and what the results actually mean.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tasman GC - CV</title>
+    <title>Self-Organising Maps for Geoscience · TasmanGC</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌏</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="/css/scribbler-global.css">
-    <link rel="stylesheet" href="/css/scribbler-doc.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/blog-post.css">
   </head>
 
   <body>
-    <div class="doc__bg"></div>
+    <div class="progress-bar" id="progress-bar"></div>
 
     <nav>
       <div class="logo">TasmanGC</div>
       <ul class="menu">
         <div class="menu__item toggle"><span></span></div>
-        <li class="menu__item"><a href="/pages/cv.html" class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
-        <li class="menu__item"><a href="/pages/blog.html" class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
-        <li class="menu__item"><a href="/pages/technical.html" class="link link--dark"><i class="fa fa-flask"></i> Technical</a></li>
+        <li class="menu__item"><a href="/pages/cv.html"            class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
+        <li class="menu__item"><a href="/pages/blog.html"          class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
+        <li class="menu__item"><a href="/pages/technical.html"     class="link link--dark"><i class="fa fa-flask"></i> Technical</a></li>
         <li class="menu__item"><a href="https://github.com/TasmanGC" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
-        <li class="menu__item"><a href="/index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+        <li class="menu__item"><a href="/index.html"               class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
       </ul>
     </nav>
-    
-    <div class="wrapper">
-      <aside class="doc__nav">
-        <ul>
-          <li class="js-btn">Exploration Geoscience</li>
-          <li class="js-btn">Knowledge Discovery</li>
-          <li class="js-btn">The Role of Datascience in Exploration</li>
-        </ul>
-      </aside>
 
-      <article class="doc__content">
-      
-        <section class="js-section">
-          <h3 class="section__title">Exploration Geoscience </h3>
-          <p>
-            In the exploration geoscience field, considerable effort is expended by field technicians, 
-            Crew leaders, and geoscientists.
-            To acquire process and interpret the signatures and traces of geological reality that lie 
-            just below the surface.
-          </p>
-          <p>
-            <b>Glimpses of reality; captured in assays, geophysical logs, and stereo nets.</b>
-          </p>
-          <p>
-            The reason we brave harsh conditions, equipment failures, and the miasma of field life is because, at our core
-            exploration geoscientists are <b>addicted to discovery</b>. The idea of being the boots on the ground when 
-            the next Olympic Dam is pegged, or the first mine to successfully operate under deep cover. Such aspirations
-            drive many a project geo, to late nights going over the data just one more time....
-          </p>
-          <p>
-            <b>Our biggest fear by extension is missing something.</b> Such ideals are well characterised by Author Malcom Knox, where
-            he refers to many early exploration personalities of Australia as <b>"nearly men."</b> Forgotten to the passages of time, they drilled
-            one to few holes, stopped the survey 1km short. 
-          </p>
-          <p>
-            I'm proud to say our industry has diversifed much in the past few decades no longer just "nearly men" dominate the landscape.
-            But something that hasn't changed, is no matter who you are, if you work in exploration, you don't want to miss anything. 
-          </p>
-          <section class="js-section">
-            <h3 class="section__title">Knowledge Discovery</h3>
-          <p>
-            The process of knowledge discovery and generating insight,
-            leads to sleepless nights pooring over tables and old reports <b> looking for something your predecessors missed.</b>
-            Asking yourself the age old question. . . .
-          </p>
-          <p>
-            What am <b>I</b> missing?
-          </p>
-          <p>
-            Sadly the modern geoscientist is torn, between the floods of new data coming in, and the legacy dataset that they've been meaning to get around to.
-            As the skillsets grow to accomidate this flood of data (with the average geo knowing their way around an excel macro,
-            a taste for python, or an r script). These efforts while valuable and to be encouraged are rarely scalable.
-            
-          </p>
-          <p>
-            The scale of the data, the training of ML models, the validation and maintainence work required to keep it running, is out of scope for 0.2 FTE 
-            their supportive manager is likely to give them.
-            The other 0.8 FTE spent on the dreaded BAU (buisness as usual to the uninitiated) will always be the priority. 
-            So sadly many of these projects will die on the laptop desktops of passionate people who 
-            had to prepare for the next monthly handover presentation.
-          </p>
-          <p>
-            So what's the answer? Hand the project over to the Data Science (DS) team and hope for the best? I say adamently NO! 
-            The integration of geoscience knowledge in process of scaling and deploying these projects is crucial. 
-            The process of Acceptance Test Plans, Data Reveiw, and model refinement should always integrate domain knowledge. 
-            Otherwise the little voice in the geo's mind will never go away....
-          </p>
-          <p>
-            What are <b>they</b> missing?
-          </p>
-          <p>
-            If those with sign off, doubt the veracity of the DS team. Then you end up with a stale mate, 
-            the geo refuses to give insight until he believes the DS team will listen. Where the DS team starts to view their SME 
-            as a unreliable source, sometimes full of boundless knowledge and sometimes 
-          </p>
-
-          <p>
-            Money lost, time lost, <b>discoveries</b> lost. . .
-          </p>
-          <section class="js-section">
-            <h3 class="section__title">The Role of Data Science in Exploration</h3>
-          <p>
-            So we have been introduced into the mindset of the average exploration geoscientist.
-            But what of the humble data-scientist, what is it they want? Starteling they want the exact same thing,
-            they want to find something. A trend, a pattern, <b>a signal in the noise.</b> The only difference
-            is they they care little of it's geological significance. A trend is a trend. . 
-          </p>
-          <p>
-            These sentiments will ring true to any geo's that work with DS on a regular basis similar annecdotes. They will raise all the patterns they find,
-            that arguably is their job. Some times the cause will be so gut wrenchingly obvious to the geo that they will, 
-            dismiss the idea of DS all together. Sometimes however they raise something they discovered on chance, that can 
-            light a spark in an exploration manger that prompts three more holes 'just in case'.
-          </p>
-          <p>
-            They are a wealth of statistical techniques, machine learning expertise, and scalable programming.  
-          </p>
-          
-
-        </section>
-            
-        <!-- <section class="js-section">
-          <h3 class="section__title">Publications</h3>
-            <p>Gillfeather-Clark, T., Horrocks, T., Holden, E.J. and Wedge, D., 2021. A comparative study of neural network methods for first break detection using seismic refraction data over a detrital iron ore deposit. Ore Geology Reviews, 137, p.104201.</p>
-            <p>Gillfeather-Clark, T. and Smith, L., 2019, April. Machine Learning for Land Classification-A SOM Case Study of Broken Hill. In The 13th SEGJ International Symposium, Tokyo, Japan, 12-14 November 2018 (pp. 534-537). Society of Exploration Geophysicists and Society of Exploration Geophysicists of Japan.</p>
-            <p>Gillfeather-Clark, Tasman. "The Electrical Properties of the Woodroffe Thrust: A Resistive Shear Zone." (2018).</p>
-        </section> -->
-
-      </article>
+    <div class="post-hero">
+      <img class="post-hero__img" src="/images/som/som_no_dtm.png" alt="Self-organising map output — Broken Hill">
     </div>
-  </div>
 
-    <footer class="footer">Tasman is a cool guy hire him for your projects, contact via <a href="https://www.linkedin.com/in/tasmangc/" target="_blank" class="link link--light">linkedin</a>.</footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/scribbler.js"></script>
+    <header class="post-header">
+      <div class="post-header__inner">
+        <div class="post-tags">
+          <span class="post-tag">Blog</span>
+          <span class="post-tag">Machine Learning</span>
+          <span class="post-tag">Geoscience</span>
+        </div>
+        <h1 class="post-title">Self-Organising Maps for Geoscience</h1>
+        <div class="post-byline">
+          <span class="author">Tasman Gillfeather-Clark</span>
+          <span class="sep">·</span>
+          <time>2021</time>
+          <span class="sep">·</span>
+          <span>6 min read</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="post-body">
+      <div class="post-body__inner">
+        <a href="/pages/blog.html" class="post-back">← All posts</a>
+
+        <h2>What is a Self-Organising Map?</h2>
+        <p>
+          A self-organising map (SOM) is an unsupervised neural network that produces a
+          low-dimensional — typically two-dimensional — representation of a high-dimensional
+          dataset. Unlike most neural networks, SOMs are trained using competitive learning
+          rather than error-correction: neurons compete to respond to a given input, and the
+          winner adjusts both itself and its neighbours to become more like that input.
+        </p>
+        <p>
+          The result is a map where similar inputs are placed near each other. Topology is
+          preserved: things that are close in the original high-dimensional space remain close
+          on the map. This makes SOMs particularly useful in geoscience, where you often have
+          many co-located measurements — geochemistry, geophysics, remote sensing — and you
+          want to understand how the landscape clusters without specifying the clusters in advance.
+        </p>
+
+        <h2>The Broken Hill Case Study</h2>
+        <p>
+          The application here uses multi-source geophysical data over the Broken Hill region
+          of New South Wales — a heavily mineralised district with complex stratigraphy and a
+          long history of exploration. The dataset included airborne radiometrics (K, Th, U),
+          magnetics, and a digital terrain model.
+        </p>
+        <p>
+          The goal was land classification: can we use the SOM to identify coherent geological
+          units and surface expressions from the combined geophysical signature alone, without
+          feeding in any known geology as supervision?
+        </p>
+        <p>
+          Running the SOM without the DTM produced cleaner geological separations than the
+          full dataset. The terrain model, it turned out, was introducing a strong topographic
+          signal that masked subtler geophysical contrasts. The image at the top of this post
+          shows the SOM output without DTM — each colour represents a node on the trained map,
+          and spatially coherent regions correspond to consistent geophysical character.
+        </p>
+
+        <h2>What the Results Actually Mean</h2>
+        <p>
+          The most important thing about a SOM result in a geoscience context is that it is a
+          hypothesis, not a classification. The clusters have no inherent labels. Interpreting
+          them requires domain knowledge: you need to look at what you know about the geology,
+          compare the SOM nodes to known lithologies, and build your interpretation from there.
+        </p>
+        <p>
+          In the Broken Hill study, several nodes correlated strongly with known outcropping
+          lithologies — metasediments, felsic volcanics, and the BIF horizon. Others were
+          ambiguous, representing either mixed pixels or units without strong geophysical contrast.
+          The ambiguity itself is informative: it tells you where you need more data, or where
+          your current sensor suite can't discriminate.
+        </p>
+        <p>
+          This is the right way to use a SOM in exploration: not as a black box that produces
+          a geological map, but as a tool for structuring the conversation between the data and
+          the geologist. The algorithm does the hard work of finding the structure; the geologist
+          does the hard work of deciding what that structure means.
+        </p>
+
+        <h2>Limitations and Next Steps</h2>
+        <p>
+          SOMs are sensitive to the choice of training parameters — map size, learning rate,
+          neighbourhood function — and to the normalisation of the input data. A SOM trained
+          on un-normalised data will be dominated by the features with the largest dynamic range,
+          which may not be the geologically meaningful ones.
+        </p>
+        <p>
+          They also don't handle missing data gracefully. In a regional geophysical dataset,
+          coverage gaps are common, and the SOM will either ignore those pixels or produce
+          artefacts at the boundaries.
+        </p>
+        <p>
+          The natural extension of this work is to run the SOM iteratively — using the initial
+          classification to guide targeted follow-up data acquisition, then retraining on the
+          improved dataset. At each step the map gets better, and the geologist's understanding
+          of what they're looking at deepens. That loop — data, model, interpretation, data —
+          is the real engine of knowledge discovery in exploration.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <a href="https://claude.ai" target="_blank" class="link link--light">Written with Claude</a>
+    </footer>
+
+    <script>
+      const bar = document.getElementById('progress-bar');
+      window.addEventListener('scroll', function () {
+        const scrolled = window.scrollY;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (scrolled / total * 100) + '%';
+      });
+    </script>
+    <script src="/js/site.js"></script>
   </body>
 </html>

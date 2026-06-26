@@ -1,166 +1,154 @@
 <!doctype html>
-
-
-
-<html>
+<html lang="en">
   <head>
-    <style>
-      .column {
-  float: left;
-  width: 33.3%;
-  padding: 2px;
-}
-.column2 {
-  float: left;
-  width: 50%;
-  padding: 1px;
-}
-
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-    
-    </style>
     <meta charset="utf-8">
-    <meta name="description" content="">
+    <meta name="description" content="What geoscientists and data scientists want from each other — and what usually gets in the way.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tasman GC - CV</title>
+    <title>Exploration Geoscience &amp; Data Science · TasmanGC</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌏</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="/css/scribbler-global.css">
-    <link rel="stylesheet" href="/css/scribbler-doc.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/blog-post.css">
   </head>
 
   <body>
-    <div class="doc__bg"></div>
+    <div class="progress-bar" id="progress-bar"></div>
 
     <nav>
       <div class="logo">TasmanGC</div>
       <ul class="menu">
         <div class="menu__item toggle"><span></span></div>
-        <li class="menu__item"><a href="/pages/cv.html" class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
-        <li class="menu__item"><a href="/pages/blog.html" class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
-        <li class="menu__item"><a href="/pages/technical.html" class="link link--dark"><i class="fa fa-flask"></i> Technical</a></li>
+        <li class="menu__item"><a href="/pages/cv.html"            class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
+        <li class="menu__item"><a href="/pages/blog.html"          class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
+        <li class="menu__item"><a href="/pages/technical.html"     class="link link--dark"><i class="fa fa-flask"></i> Technical</a></li>
         <li class="menu__item"><a href="https://github.com/TasmanGC" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
-        <li class="menu__item"><a href="/index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+        <li class="menu__item"><a href="/index.html"               class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
       </ul>
     </nav>
-    
-    <div class="wrapper">
-      <aside class="doc__nav">
-        <ul>
-          <li class="js-btn">Exploration Geoscience</li>
-          <li class="js-btn">Knowledge Discovery</li>
-          <li class="js-btn">The Role of Datascience in Exploration</li>
-        </ul>
-      </aside>
 
-      <article class="doc__content">
-      
-        <section class="js-section">
-          <h3 class="section__title">Exploration Geoscience </h3>
-          <p>
-            In the exploration geoscience field, considerable effort is expended by field technicians, 
-            Crew leaders, and geoscientists.
-            To acquire process and interpret the signatures and traces of geological reality that lie 
-            just below the surface.
-          </p>
-          <p>
-            <b>Glimpses of reality; captured in assays, geophysical logs, and stereo nets.</b>
-          </p>
-          <p>
-            The reason we brave harsh conditions, equipment failures, and the miasma of field life is because, at our core
-            exploration geoscientists are <b>addicted to discovery</b>. The idea of being the boots on the ground when 
-            the next Olympic Dam is pegged, or the first mine to successfully operate under deep cover. Such aspirations
-            drive many a project geo, to late nights going over the data just one more time....
-          </p>
-          <p>
-            <b>Our biggest fear by extension is missing something.</b> Such ideals are well characterised by Author Malcom Knox, where
-            he refers to many early exploration personalities of Australia as <b>"nearly men."</b> Forgotten to the passages of time, they drilled
-            one to few holes, stopped the survey 1km short. 
-          </p>
-          <p>
-            I'm proud to say our industry has diversifed much in the past few decades no longer just "nearly men" dominate the landscape.
-            But something that hasn't changed, is no matter who you are, if you work in exploration, you don't want to miss anything. 
-          </p>
-          <section class="js-section">
-            <h3 class="section__title">Knowledge Discovery</h3>
-          <p>
-            The process of knowledge discovery and generating insight,
-            leads to sleepless nights pooring over tables and old reports <b> looking for something your predecessors missed.</b>
-            Asking yourself the age old question. . . .
-          </p>
-          <p>
-            What am <b>I</b> missing?
-          </p>
-          <p>
-            Sadly the modern geoscientist is torn, between the floods of new data coming in, and the legacy dataset that they've been meaning to get around to.
-            As the skillsets grow to accomidate this flood of data (with the average geo knowing their way around an excel macro,
-            a taste for python, or an r script). These efforts while valuable and to be encouraged are rarely scalable.
-            
-          </p>
-          <p>
-            The scale of the data, the training of ML models, the validation and maintainence work required to keep it running, is out of scope for 0.2 FTE 
-            their supportive manager is likely to give them.
-            The other 0.8 FTE spent on the dreaded BAU (buisness as usual to the uninitiated) will always be the priority. 
-            So sadly many of these projects will die on the laptop desktops of passionate people who 
-            had to prepare for the next monthly handover presentation.
-          </p>
-          <p>
-            So what's the answer? Hand the project over to the Data Science (DS) team and hope for the best? I say adamently NO! 
-            The integration of geoscience knowledge in process of scaling and deploying these projects is crucial. 
-            The process of Acceptance Test Plans, Data Reveiw, and model refinement should always integrate domain knowledge. 
-            Otherwise the little voice in the geo's mind will never go away....
-          </p>
-          <p>
-            What are <b>they</b> missing?
-          </p>
-          <p>
-            If those with sign off, doubt the veracity of the DS team. Then you end up with a stale mate, 
-            the geo refuses to give insight until he believes the DS team will listen. Where the DS team starts to view their SME 
-            as a unreliable source, sometimes full of boundless knowledge and sometimes 
-          </p>
-
-          <p>
-            Money lost, time lost, <b>discoveries</b> lost. . .
-          </p>
-          <section class="js-section">
-            <h3 class="section__title">The Role of Data Science in Exploration</h3>
-          <p>
-            So we have been introduced into the mindset of the average exploration geoscientist.
-            But what of the humble data-scientist, what is it they want? Starteling they want the exact same thing,
-            they want to find something. A trend, a pattern, <b>a signal in the noise.</b> The only difference
-            is they they care little of it's geological significance. A trend is a trend. . 
-          </p>
-          <p>
-            These sentiments will ring true to any geo's that work with DS on a regular basis similar annecdotes. They will raise all the patterns they find,
-            that arguably is their job. Some times the cause will be so gut wrenchingly obvious to the geo that they will, 
-            dismiss the idea of DS all together. Sometimes however they raise something they discovered on chance, that can 
-            light a spark in an exploration manger that prompts three more holes 'just in case'.
-          </p>
-          <p>
-            They are a wealth of statistical techniques, machine learning expertise, and scalable programming.  
-          </p>
-          
-
-        </section>
-            
-        <!-- <section class="js-section">
-          <h3 class="section__title">Publications</h3>
-            <p>Gillfeather-Clark, T., Horrocks, T., Holden, E.J. and Wedge, D., 2021. A comparative study of neural network methods for first break detection using seismic refraction data over a detrital iron ore deposit. Ore Geology Reviews, 137, p.104201.</p>
-            <p>Gillfeather-Clark, T. and Smith, L., 2019, April. Machine Learning for Land Classification-A SOM Case Study of Broken Hill. In The 13th SEGJ International Symposium, Tokyo, Japan, 12-14 November 2018 (pp. 534-537). Society of Exploration Geophysicists and Society of Exploration Geophysicists of Japan.</p>
-            <p>Gillfeather-Clark, Tasman. "The Electrical Properties of the Woodroffe Thrust: A Resistive Shear Zone." (2018).</p>
-        </section> -->
-
-      </article>
+    <div class="post-hero">
+      <img class="post-hero__img" src="/images/cobar.jpg" alt="Exploration geoscience — Cobar region">
     </div>
-  </div>
 
-    <footer class="footer">Tasman is a cool guy hire him for your projects, contact via <a href="https://www.linkedin.com/in/tasmangc/" target="_blank" class="link link--light">linkedin</a>.</footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/scribbler.js"></script>
+    <header class="post-header">
+      <div class="post-header__inner">
+        <div class="post-tags">
+          <span class="post-tag">Blog</span>
+          <span class="post-tag">Geoscience</span>
+          <span class="post-tag">Data Science</span>
+        </div>
+        <h1 class="post-title">Exploration Geoscience &amp; Data Science</h1>
+        <div class="post-byline">
+          <span class="author">Tasman Gillfeather-Clark</span>
+          <span class="sep">·</span>
+          <time>2023</time>
+          <span class="sep">·</span>
+          <span>7 min read</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="post-body">
+      <div class="post-body__inner">
+        <a href="/pages/blog.html" class="post-back">← All posts</a>
+
+        <h2>Exploration Geoscience</h2>
+        <p>
+          In the exploration geoscience field, considerable effort is expended by field technicians,
+          crew leaders, and geoscientists — to acquire, process, and interpret the signatures and
+          traces of geological reality that lie just below the surface.
+        </p>
+        <p>
+          <strong>Glimpses of reality; captured in assays, geophysical logs, and stereo nets.</strong>
+        </p>
+        <p>
+          The reason we brave harsh conditions, equipment failures, and the miasma of field life is
+          because, at our core, exploration geoscientists are <strong>addicted to discovery</strong>.
+          The idea of being the boots on the ground when the next Olympic Dam is pegged, or the first
+          mine to successfully operate under deep cover — such aspirations drive many a project geo
+          to late nights going over the data just one more time.
+        </p>
+        <p>
+          <strong>Our biggest fear by extension is missing something.</strong> Such ideals are well
+          characterised by author Malcolm Knox, where he refers to many early exploration personalities
+          of Australia as <strong>"nearly men"</strong> — forgotten to the passages of time, they
+          drilled one too few holes, stopped the survey 1km short.
+        </p>
+        <p>
+          I'm proud to say our industry has diversified much in the past few decades — no longer just
+          "nearly men" dominate the landscape. But something that hasn't changed: no matter who you
+          are, if you work in exploration, you don't want to miss anything.
+        </p>
+
+        <h2>Knowledge Discovery</h2>
+        <p>
+          The process of knowledge discovery and generating insight leads to sleepless nights poring
+          over tables and old reports, <strong>looking for something your predecessors missed.</strong>
+          Asking yourself the age-old question: what am <em>I</em> missing?
+        </p>
+        <p>
+          Sadly the modern geoscientist is torn between the floods of new data coming in and the
+          legacy dataset they've been meaning to get around to. As skillsets grow to accommodate
+          this flood of data — with the average geo knowing their way around an Excel macro, a taste
+          for Python, or an R script — these efforts, while valuable, are rarely scalable.
+        </p>
+        <p>
+          The scale of the data, the training of ML models, the validation and maintenance work
+          required to keep it running — this is out of scope for the 0.2 FTE a supportive manager
+          is likely to give them. The other 0.8 FTE spent on BAU will always be the priority.
+          So sadly many of these projects will die on the laptop desktops of passionate people
+          who had to prepare for the next monthly handover presentation.
+        </p>
+        <p>
+          So what's the answer? Hand the project over to the Data Science team and hope for the best?
+          Adamantly no. The integration of geoscience knowledge in the process of scaling and deploying
+          these projects is crucial. The process of acceptance testing, data review, and model
+          refinement should always integrate domain knowledge. Otherwise the little voice in the
+          geo's mind will never go away: what are <em>they</em> missing?
+        </p>
+        <p>
+          If those with sign-off doubt the veracity of the DS team, you end up with a stalemate —
+          the geo refuses to give insight until they believe the DS team will listen, while the DS
+          team starts to view their SME as an unreliable source. Money lost, time lost,
+          <strong>discoveries</strong> lost.
+        </p>
+
+        <h2>The Role of Data Science in Exploration</h2>
+        <p>
+          So we've been introduced to the mindset of the average exploration geoscientist. But what
+          of the humble data scientist — what is it they want? Startlingly, they want the exact same
+          thing: they want to find something. A trend, a pattern, <strong>a signal in the noise.</strong>
+          The only difference is that they care little for its geological significance. A trend is a trend.
+        </p>
+        <p>
+          These sentiments will ring true to any geo who works with DS on a regular basis. The DS team
+          will raise all the patterns they find — that's arguably their job. Sometimes the cause will
+          be so gut-wrenchingly obvious to the geo that they'll dismiss the idea of DS altogether.
+          But sometimes they raise something discovered by chance that lights a spark in an exploration
+          manager and prompts three more holes "just in case."
+        </p>
+        <p>
+          Data scientists are a wealth of statistical techniques, machine learning expertise, and
+          scalable programming. The question is how to connect that capability meaningfully to the
+          domain knowledge that gives it direction. That connection — built through trust, shared
+          language, and genuine curiosity about each other's craft — is the real work.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <a href="https://claude.ai" target="_blank" class="link link--light">Written with Claude</a>
+    </footer>
+
+    <script>
+      const bar = document.getElementById('progress-bar');
+      window.addEventListener('scroll', function () {
+        const scrolled = window.scrollY;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (scrolled / total * 100) + '%';
+      });
+    </script>
+    <script src="/js/site.js"></script>
   </body>
 </html>

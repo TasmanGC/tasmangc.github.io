@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="description" content="On the habits of mind that field geoscience builds — and why they make you a better data scientist.">
@@ -8,146 +8,161 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌏</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="/css/scribbler-global.css">
-    <link rel="stylesheet" href="/css/scribbler-doc.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/blog-post.css">
   </head>
 
   <body>
-    <div class="doc__bg"></div>
+    <div class="progress-bar" id="progress-bar"></div>
 
     <nav>
       <div class="logo">TasmanGC</div>
       <ul class="menu">
         <div class="menu__item toggle"><span></span></div>
-        <li class="menu__item"><a href="/pages/cv.html" class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
-        <li class="menu__item"><a href="/pages/blog.html" class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
-        <li class="menu__item"><a href="/pages/technical.html" class="link link--dark"><i class="fa fa-flask"></i> Technical</a></li>
+        <li class="menu__item"><a href="/pages/cv.html"            class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
+        <li class="menu__item"><a href="/pages/blog.html"          class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
+        <li class="menu__item"><a href="/pages/technical.html"     class="link link--dark"><i class="fa fa-flask"></i> Technical</a></li>
         <li class="menu__item"><a href="https://github.com/TasmanGC" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
-        <li class="menu__item"><a href="/index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+        <li class="menu__item"><a href="/index.html"               class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
       </ul>
     </nav>
 
-    <div class="wrapper">
-      <aside class="doc__nav">
-        <ul>
-          <li class="js-btn">Reading the Rock</li>
-          <li class="js-btn">The Measurement Problem</li>
-          <li class="js-btn">Uncertainty as a Feature</li>
-          <li class="js-btn">So What?</li>
-        </ul>
-      </aside>
-
-      <article class="doc__content">
-
-        <section class="js-section">
-          <h3 class="section__title">Reading the Rock</h3>
-          <p>
-            There is a moment that every field geologist knows. You're standing at an outcrop that
-            should be straightforward — a simple contact, maybe, or a fold axis you've been chasing
-            for two days. And the rock just doesn't cooperate. The foliation is inconsistent, the
-            contact is gradational where it should be sharp, and that xenolith you're staring at
-            shouldn't be there at all.
-          </p>
-          <p>
-            What you do next is the thing no dataset can teach you.
-          </p>
-          <p>
-            You don't go back to the model. You don't average it away or flag it as an outlier.
-            You sit with it. You try to understand what process could have produced what you're
-            seeing, even if that process isn't in your hypothesis. You update your mental model of
-            the whole area based on one hand-specimen sized piece of evidence.
-          </p>
-          <p>
-            This is pattern recognition at its hardest — not recognising a pattern you've been
-            trained on, but recognising that the pattern you expected is absent, and that this
-            absence is meaningful.
-          </p>
-        </section>
-
-        <section class="js-section">
-          <h3 class="section__title">The Measurement Problem</h3>
-          <p>
-            Field data is almost never what you actually want to measure. You want to know the
-            bulk composition of a rock unit, so you take a chip sample from the surface.
-            You want to know the subsurface geometry, so you measure strike and dip at outcrop.
-            You want to know the extent of mineralisation, so you drill a hole every 200 metres
-            and hope the spacing makes sense.
-          </p>
-          <p>
-            Every piece of data you collect is a proxy for something else. And the distance between
-            your proxy and your target — that's where all the interesting error lives.
-          </p>
-          <p>
-            This is something that takes years to internalise, and it fundamentally changes how you
-            approach a dataset. When a geologist looks at a geochemical assay, they're not just
-            reading a number. They're asking: what was the sample preparation method? Was this
-            drilled in the wet season? Is there a reason the collar coordinates look slightly off
-            for this hole? The number is almost secondary.
-          </p>
-          <p>
-            Data scientists tend to learn this lesson the hard way — after a model performs
-            beautifully in validation and then falls apart in production because the training
-            data had a subtle collection bias no one thought to document.
-            Field geoscientists learn it on day one.
-          </p>
-        </section>
-
-        <section class="js-section">
-          <h3 class="section__title">Uncertainty as a Feature</h3>
-          <p>
-            Ask a geologist how confident they are in an interpretation and they'll give you a
-            range. They'll tell you what they can say with high confidence, what they're inferring,
-            and what's frankly a guess based on regional analogy. They'll mark their cross-sections
-            with solid lines for known contacts and dashed lines for inferred ones.
-            The uncertainty is part of the deliverable.
-          </p>
-          <p>
-            Machine learning models tend to produce point estimates. The output of a classification
-            model is a class label; the output of a regression is a number. You have to work to get
-            uncertainty out of most standard approaches — calibration, ensembles, conformal prediction.
-            It's almost treated as an afterthought.
-          </p>
-          <p>
-            The geological mindset flips this. Uncertainty isn't a problem to be minimised and then
-            reported; it's a first-class part of the result. A model that says "I'm 90% confident"
-            is telling you something important. A model that says "confident" without qualification
-            is hiding something.
-          </p>
-          <p>
-            Spending time in the field teaches you to be suspicious of confident answers to hard
-            questions. That suspicion is exactly what you want when you're evaluating a model
-            trained on imperfect data.
-          </p>
-        </section>
-
-        <section class="js-section">
-          <h3 class="section__title">So What?</h3>
-          <p>
-            I'm not making an argument that data scientists should all go spend a season in the
-            Pilbara (though I would personally recommend it). I'm making a narrower point:
-            that the habits of mind you build through field work — sitting with ambiguity,
-            interrogating the gap between measurement and meaning, treating uncertainty as
-            information — are exactly the habits that make someone good at working with real
-            data in real systems.
-          </p>
-          <p>
-            The best data scientists I've worked with tend to have this disposition regardless of
-            background. They're the ones who ask "why does this column have 40% nulls?" before
-            they impute them. Who wonder whether the train-test split is temporally consistent.
-            Who notice that the validation metric looks too good and go looking for the leak.
-          </p>
-          <p>
-            Field work just accelerates the development of that disposition, because it forces
-            you to confront these questions in a context where you can't hide behind the abstraction
-            of a spreadsheet. The rock is in front of you. It is what it is. Go figure it out.
-          </p>
-        </section>
-
-      </article>
+    <div class="post-hero">
+      <img class="post-hero__img" src="/images/karratha.jpg" alt="Field work in the Pilbara">
     </div>
 
-    <footer class="footer">Originally based on a <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light">Codrops</a> template &middot; Revised with <a href="https://claude.ai" target="_blank" class="link link--light">Claude Sonnet 4.6</a></footer>
+    <header class="post-header">
+      <div class="post-header__inner">
+        <div class="post-tags">
+          <span class="post-tag">Blog</span>
+          <span class="post-tag">Field Work</span>
+          <span class="post-tag">Data Science</span>
+        </div>
+        <h1 class="post-title">What Field Work Teaches You That No Dataset Can</h1>
+        <div class="post-byline">
+          <span class="author">Tasman Gillfeather-Clark</span>
+          <span class="sep">·</span>
+          <time>May 2026</time>
+          <span class="sep">·</span>
+          <span>6 min read</span>
+        </div>
+      </div>
+    </header>
 
-    <script src="/js/scribbler.js"></script>
+    <main class="post-body">
+      <div class="post-body__inner">
+        <a href="/pages/blog.html" class="post-back">← All posts</a>
+
+        <h2>Reading the Rock</h2>
+        <p>
+          There is a moment that every field geologist knows. You're standing at an outcrop that
+          should be straightforward — a simple contact, maybe, or a fold axis you've been chasing
+          for two days. And the rock just doesn't cooperate. The foliation is inconsistent, the
+          contact is gradational where it should be sharp, and that xenolith you're staring at
+          shouldn't be there at all.
+        </p>
+        <p>
+          What you do next is the thing no dataset can teach you.
+        </p>
+        <p>
+          You don't go back to the model. You don't average it away or flag it as an outlier.
+          You sit with it. You try to understand what process could have produced what you're
+          seeing, even if that process isn't in your hypothesis. You update your mental model of
+          the whole area based on one hand-specimen sized piece of evidence.
+        </p>
+        <p>
+          This is pattern recognition at its hardest — not recognising a pattern you've been
+          trained on, but recognising that the pattern you expected is absent, and that this
+          absence is meaningful.
+        </p>
+
+        <h2>The Measurement Problem</h2>
+        <p>
+          Field data is almost never what you actually want to measure. You want to know the
+          bulk composition of a rock unit, so you take a chip sample from the surface.
+          You want to know the subsurface geometry, so you measure strike and dip at outcrop.
+          You want to know the extent of mineralisation, so you drill a hole every 200 metres
+          and hope the spacing makes sense.
+        </p>
+        <p>
+          Every piece of data you collect is a proxy for something else. And the distance between
+          your proxy and your target — that's where all the interesting error lives.
+        </p>
+        <p>
+          This is something that takes years to internalise, and it fundamentally changes how you
+          approach a dataset. When a geologist looks at a geochemical assay, they're not just
+          reading a number. They're asking: what was the sample preparation method? Was this
+          drilled in the wet season? Is there a reason the collar coordinates look slightly off
+          for this hole? The number is almost secondary.
+        </p>
+        <p>
+          Data scientists tend to learn this lesson the hard way — after a model performs
+          beautifully in validation and then falls apart in production because the training
+          data had a subtle collection bias no one thought to document.
+          Field geoscientists learn it on day one.
+        </p>
+
+        <h2>Uncertainty as a Feature</h2>
+        <p>
+          Ask a geologist how confident they are in an interpretation and they'll give you a
+          range. They'll tell you what they can say with high confidence, what they're inferring,
+          and what's frankly a guess based on regional analogy. They'll mark their cross-sections
+          with solid lines for known contacts and dashed lines for inferred ones.
+          The uncertainty is part of the deliverable.
+        </p>
+        <p>
+          Machine learning models tend to produce point estimates. The output of a classification
+          model is a class label; the output of a regression is a number. You have to work to get
+          uncertainty out of most standard approaches — calibration, ensembles, conformal prediction.
+          It's almost treated as an afterthought.
+        </p>
+        <p>
+          The geological mindset flips this. Uncertainty isn't a problem to be minimised and then
+          reported; it's a first-class part of the result. A model that says "I'm 90% confident"
+          is telling you something important. A model that says "confident" without qualification
+          is hiding something.
+        </p>
+        <p>
+          Spending time in the field teaches you to be suspicious of confident answers to hard
+          questions. That suspicion is exactly what you want when you're evaluating a model
+          trained on imperfect data.
+        </p>
+
+        <h2>So What?</h2>
+        <p>
+          I'm not making an argument that data scientists should all go spend a season in the
+          Pilbara (though I would personally recommend it). I'm making a narrower point:
+          that the habits of mind you build through field work — sitting with ambiguity,
+          interrogating the gap between measurement and meaning, treating uncertainty as
+          information — are exactly the habits that make someone good at working with real
+          data in real systems.
+        </p>
+        <p>
+          The best data scientists I've worked with tend to have this disposition regardless of
+          background. They're the ones who ask "why does this column have 40% nulls?" before
+          they impute them. Who wonder whether the train-test split is temporally consistent.
+          Who notice that the validation metric looks too good and go looking for the leak.
+        </p>
+        <p>
+          Field work just accelerates the development of that disposition, because it forces
+          you to confront these questions in a context where you can't hide behind the abstraction
+          of a spreadsheet. The rock is in front of you. It is what it is. Go figure it out.
+        </p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <a href="https://claude.ai" target="_blank" class="link link--light">Written with Claude</a>
+    </footer>
+
+    <script>
+      const bar = document.getElementById('progress-bar');
+      window.addEventListener('scroll', function () {
+        const scrolled = window.scrollY;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (scrolled / total * 100) + '%';
+      });
+    </script>
+    <script src="/js/site.js"></script>
   </body>
 </html>
