@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="EXCERPT">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ARTICLE TITLE · TasmanGC</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌏</text></svg>">
+
+    <!-- ============================================================
+         POST METADATA — read by scripts/build.py to generate listings
+         post:sort uses YYYY-MM format for correct ordering
+         ============================================================ -->
+    <meta name="post:title"    content="ARTICLE TITLE">
+    <meta name="post:date"     content="Month YYYY">
+    <meta name="post:sort"     content="YYYY-MM">
+    <meta name="post:readtime" content="X min read">
+    <meta name="post:image"    content="/images/your-image.jpg">
+    <meta name="post:excerpt"  content="One or two sentence summary shown on the listing card.">
+    <meta name="post:tags"     content="Technical,Tag1,Tag2">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+
+    <!-- KaTeX for math rendering (remove if not needed) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+
+    <!-- Syntax highlighting -->
+    <link rel="stylesheet" href="/css/hljs-forest.css">
+
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/article.css">
+  </head>
+
+  <body>
+    <div class="progress-bar" id="progress-bar"></div>
+
+    <nav>
+      <div class="logo">TasmanGC</div>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="/pages/cv.html"            class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
+        <li class="menu__item"><a href="/pages/blog.html"          class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
+        <li class="menu__item"><a href="/pages/technical.html"     class="link link--dark"><i class="fa fa-flask"></i> Technical</a></li>
+        <li class="menu__item"><a href="https://github.com/TasmanGC" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+        <li class="menu__item"><a href="/index.html"               class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+      </ul>
+    </nav>
+
+    <main class="article-main">
+
+      <header class="article-header">
+        <span class="category">Tag1</span>
+        <h1>ARTICLE TITLE</h1>
+        <p class="subtitle">
+          One sentence subtitle or framing statement.
+        </p>
+        <div class="article-byline">
+          <span class="author">Tasman Gillfeather-Clark</span>
+          <span class="sep">·</span>
+          <time datetime="YYYY-MM">Month YYYY</time>
+          <span class="sep">·</span>
+          <span>X min read</span>
+        </div>
+      </header>
+
+      <hr class="article-divider">
+
+      <div class="article-abstract">
+        <p>
+          <strong>Abstract.</strong>
+          One paragraph summary of what the article covers and what the reader will take away.
+        </p>
+      </div>
+
+      <nav class="article-toc">
+        <h4>Contents</h4>
+        <ol>
+          <li><a href="#section-1">First Section</a></li>
+          <li><a href="#section-2">Second Section</a></li>
+          <li><a href="#section-3">Third Section</a></li>
+        </ol>
+      </nav>
+
+      <hr class="article-divider">
+
+      <div class="article-body">
+
+        <h2 id="section-1">1. First Section</h2>
+        <p>Body text.</p>
+
+        <!-- Sidenote example:
+        <aside class="sidenote">
+          Supplementary note or reference that sits in the margin on wide screens.
+        </aside>
+        -->
+
+        <h2 id="section-2">2. Second Section</h2>
+        <p>Body text.</p>
+
+        <!-- Code block example:
+        <pre><code class="python">
+# Your code here
+        </code></pre>
+        -->
+
+        <!-- Figure example:
+        <figure>
+          <img src="/images/your-image.png" alt="Description">
+          <figcaption><strong>Figure 1.</strong> Caption text.</figcaption>
+        </figure>
+        -->
+
+        <h2 id="section-3">3. Third Section</h2>
+        <p>Body text.</p>
+
+        <div class="article-references">
+          <h2>References</h2>
+          <ol>
+            <li>Author, A. (Year). Title. <em>Journal</em>, vol(issue), pages.</li>
+          </ol>
+        </div>
+
+      </div><!-- .article-body -->
+
+    </main>
+
+    <footer class="footer">
+      <a href="https://claude.ai" target="_blank" class="link link--light">Written with Claude</a>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- KaTeX auto-render (remove if not needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+            onload="renderMathInElement(document.body)"></script>
+
+    <script>
+      const bar = document.getElementById('progress-bar');
+      window.addEventListener('scroll', function () {
+        const scrolled = window.scrollY;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (scrolled / total * 100) + '%';
+      });
+    </script>
+    <script src="/js/site.js"></script>
+  </body>
+</html>
