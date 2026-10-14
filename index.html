@@ -56,41 +56,47 @@
 
         </div>
 
-        <!-- Right: badges + quiz -->
+        <!-- Right: badges + ore body game (js/ore-game.js) -->
         <div class="home-hero__right">
           <div class="home-hero__badges">
             <span class="badge">Geoscientist</span>
             <span class="badge">Data Scientist</span>
             <span class="badge">PhD</span>
           </div>
-          <p class="home-quiz__label">What brings you here?</p>
-          <div class="home-quiz__options">
 
-            <button class="quiz-btn" data-target="contact">
-              <span class="quiz-btn__icon">👔</span>
-              <span class="quiz-btn__label">Hiring</span>
-              <span class="quiz-btn__sub">Experience &amp; skills</span>
-            </button>
-
-            <button class="quiz-btn" data-target="writing">
-              <span class="quiz-btn__icon">🔬</span>
-              <span class="quiz-btn__label">Collaborating</span>
-              <span class="quiz-btn__sub">Research &amp; publications</span>
-            </button>
-
-            <button class="quiz-btn" data-target="writing">
-              <span class="quiz-btn__icon">📖</span>
-              <span class="quiz-btn__label">Reading</span>
-              <span class="quiz-btn__sub">Articles &amp; blog posts</span>
-            </button>
-
-            <button class="quiz-btn" data-target="contact">
-              <span class="quiz-btn__icon">👋</span>
-              <span class="quiz-btn__label">Saying hi</span>
-              <span class="quiz-btn__sub">Get in touch</span>
-            </button>
-
+          <div class="ore-game">
+            <div class="ore-game__head">
+              <p class="ore-game__label">Find the ore body</p>
+              <div class="ore-game__holes" id="ore-holes" aria-label="Drill holes remaining"></div>
+            </div>
+            <div class="ore-game__settings">
+              <div class="ore-seg" role="group" aria-label="Difficulty">
+                <span class="ore-seg__label">Difficulty</span>
+                <button type="button" data-ore-setting="difficulty" data-value="easy">Easy</button>
+                <button type="button" data-ore-setting="difficulty" data-value="normal">Normal</button>
+                <button type="button" data-ore-setting="difficulty" data-value="hard">Hard</button>
+              </div>
+              <div class="ore-seg" role="group" aria-label="Number of deposits">
+                <span class="ore-seg__label">Deposits</span>
+                <button type="button" data-ore-setting="deposits" data-value="1">1</button>
+                <button type="button" data-ore-setting="deposits" data-value="2">2</button>
+                <button type="button" data-ore-setting="deposits" data-value="3">3</button>
+              </div>
+            </div>
+            <canvas class="ore-game__canvas" id="ore-canvas" tabindex="0"
+                    aria-label="Drilling game: a gravity survey above a hidden cross-section. Move with arrow keys, press Enter to drill."></canvas>
+            <div class="ore-game__foot">
+              <p class="ore-game__status" id="ore-status" aria-live="polite"></p>
+              <button class="ore-game__again" id="ore-again" hidden><i class="fa fa-refresh"></i> New prospect</button>
+            </div>
           </div>
+
+          <p class="ore-game__skip">
+            Not here to drill?
+            <a href="#writing" data-target="writing">Read the writing</a> &middot;
+            <a href="/pages/cv.html">See the CV</a> &middot;
+            <a href="#contact" data-target="contact">Say hi</a>
+          </p>
         </div>
 
       </div>
@@ -167,10 +173,11 @@
 
     <footer class="footer">Originally based on a <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light">Codrops</a> template</footer>
 
-    <!-- Quiz: smooth-scroll + section highlight -->
+    <!-- Skip links: smooth-scroll + section highlight -->
     <script>
-      document.querySelectorAll('.quiz-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
+      document.querySelectorAll('.ore-game__skip a[data-target]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
           var target = document.getElementById(btn.dataset.target);
           if (!target) return;
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -184,6 +191,7 @@
       });
     </script>
 
+    <script src="/js/ore-game.js"></script>
     <script src="/js/site.js"></script>
 
   </body>

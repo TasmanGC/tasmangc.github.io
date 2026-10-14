@@ -78,49 +78,137 @@
 }
 .hero-link:hover { color: var(--accent-color); }
 
-/* --- Quiz (right column of hero) ----------------------------- */
+/* --- Ore body game (right column of hero) -------------------- */
 .home-hero__right .home-hero__badges {
   margin-bottom: 2rem;
 }
 
-.home-quiz__label {
+.ore-game {
+  border: 1.5px solid var(--code-bg-color);
+  border-radius: 4px;
+  background: var(--white-color);
+  overflow: hidden;
+}
+
+.ore-game__head,
+.ore-game__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.ore-game__label {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--medium-gray-color);
-  margin: 0 0 1rem;
+  color: var(--accent-color-dark);
+  margin: 0;
 }
 
-.home-quiz__options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-}
+.ore-game__holes { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.35rem; }
 
-.quiz-btn {
+.ore-game__settings {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1.25rem 1.4rem;
-  background: white;
-  border: 1.5px solid var(--code-bg-color);
-  border-radius: 4px;
-  cursor: pointer;
-  text-align: left;
-  font-family: 'Nunito Sans', sans-serif;
-  transition: border-color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s;
-}
-.quiz-btn:hover {
-  border-color: var(--accent-color);
-  background: var(--accent-color-light);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(254, 106, 107, 0.15);
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  padding: 0 1rem 0.75rem;
 }
 
-.quiz-btn__icon  { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; line-height: 1; }
-.quiz-btn__label { font-size: 0.9rem; font-weight: 700; color: var(--primary-color); display: block; margin-bottom: 0.2rem; }
-.quiz-btn__sub   { font-size: 0.75rem; color: var(--medium-gray-color); display: block; line-height: 1.4; }
+.ore-seg {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ore-seg__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-color);
+  margin-right: 0.35rem;
+}
+
+.ore-seg button {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 1.9rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--white-color);
+  color: var(--muted-color);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.ore-seg button:hover { border-color: var(--primary-color-light); color: var(--primary-color); }
+.ore-seg button[aria-pressed="true"] {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.ore-hole-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--primary-color);
+}
+.ore-hole-dot.is-used { background: var(--light-gray-color); }
+.ore-hole-dot.is-hit  { background: var(--accent-color); box-shadow: 0 0 0 2px var(--accent-color-light); }
+
+.ore-game__canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 480 / 300;
+  cursor: crosshair;
+  touch-action: manipulation;
+}
+.ore-game__canvas:focus-visible { outline: 2px solid var(--accent-color); outline-offset: -2px; }
+
+.ore-game__foot {
+  border-top: 1px solid var(--code-bg-color);
+  min-height: 3.4rem;
+}
+
+.ore-game__status {
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--dark-gray-color);
+  margin: 0;
+}
+
+.ore-game__again {
+  flex-shrink: 0;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  border: 1.5px solid var(--primary-color);
+  border-radius: 3px;
+  background: var(--primary-color);
+  color: var(--white-color);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.ore-game__again:hover { background: var(--white-color); color: var(--primary-color); }
+.ore-game__again[hidden] { display: none; }
+
+.ore-game__skip {
+  font-size: 0.8rem;
+  color: var(--muted-color);
+  margin: 1rem 0 0;
+}
+.ore-game__skip a {
+  font-weight: 700;
+  border-bottom: 2px solid var(--accent-color);
+}
+.ore-game__skip a:hover { color: var(--accent-color-dark); }
 
 /* --- Content sections --------------------------------------- */
 .home-section {
@@ -146,7 +234,7 @@
   margin: 0 0 2.5rem;
 }
 
-/* --- Section highlight (quiz scroll target) ----------------- */
+/* --- Section highlight (skip-link scroll target) ------------ */
 @keyframes section-pop {
   0%, 50% { box-shadow: inset 4px 0 0 var(--accent-color); }
   100%    { box-shadow: inset 4px 0 0 rgba(254, 106, 107, 0); }
