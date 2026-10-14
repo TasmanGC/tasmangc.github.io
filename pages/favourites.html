@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Tasman Gillfeather-Clark : favourite talks, blogs, and rabbit holes, organised by topic.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Favourites · TasmanGC</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌏</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/blog-listing.css">
+    <link rel="stylesheet" href="/css/favourites.css">
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo">TasmanGC</div>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="/pages/cv.html"            class="link link--dark"><i class="fa fa-file-text"></i> CV</a></li>
+        <li class="menu__item"><a href="/pages/blog.html"          class="link link--dark"><i class="fa fa-book"></i> Blog</a></li>
+        <li class="menu__item"><a href="/pages/technical.html"     class="link link--dark"><i class="fa fa-flask"></i> Technical</a></li>
+        <li class="menu__item"><a href="/pages/favourites.html"    class="link link--dark"><i class="fa fa-star"></i> Favourites</a></li>
+        <li class="menu__item"><a href="https://github.com/TasmanGC" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+        <li class="menu__item"><a href="/index.html"               class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+      </ul>
+    </nav>
+
+    <main class="blog-landing">
+      <header class="blog-landing__header">
+        <span class="eyebrow">Recommended</span>
+        <h1>Favourites</h1>
+        <p>Talks, writing, and rabbit holes that changed how I think — organised by topic.</p>
+      </header>
+
+      <!--
+        To add a topic, copy one <tr> block below.
+          Sources   : the talks / posts / papers themselves
+          Fun links : rabbit holes, related blogs, the good stuff around the edges
+        Put each link in its own <li>. Icons: fa-play-circle (video), fa-pencil (blog),
+        fa-file-text-o (paper), fa-book (book), fa-link (anything else).
+      -->
+      <table class="fav-table">
+        <thead>
+          <tr>
+            <th scope="col">Topic</th>
+            <th scope="col">Sources</th>
+            <th scope="col">Fun links</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <th scope="row" data-label="Topic">AI and Hacking</th>
+            <td data-label="Sources">
+              <ul>
+                <li><a href="https://www.youtube.com/watch?v=eEBv0STiYhI" target="_blank" rel="noopener"><i class="fa fa-play-circle"></i> Hacking AI — Bruce Schneier, DEF CON 34</a></li>
+              </ul>
+            </td>
+            <td data-label="Fun links">
+              <ul>
+                <li><a href="https://www.schneier.com/blog/about/" target="_blank" rel="noopener"><i class="fa fa-pencil"></i> Schneier on Security (blog)</a></li>
+              </ul>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </main>
+
+
+    <script src="/js/site.js"></script>
+  </body>
+</html>

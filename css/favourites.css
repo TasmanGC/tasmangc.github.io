@@ -1,0 +1,107 @@
+/* ============================================================
+   favourites.css — Favourites table (topic / sources / fun links)
+   Load alongside global.css and blog-listing.css (for the header).
+   ============================================================ */
+
+.fav-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.88rem;
+}
+
+.fav-table thead th {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+  color: var(--accent-color-dark);
+  background: var(--bg-color);
+  padding: 0.8rem 1.1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.fav-table tbody th,
+.fav-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.fav-table tbody tr:last-child th,
+.fav-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.fav-table tbody th {
+  width: 22%;
+  font-weight: 800;
+  color: var(--primary-color);
+  border-left: 4px solid var(--accent-color);
+}
+
+.fav-table ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.fav-table a {
+  color: var(--dark-gray-color);
+  line-height: 1.5;
+}
+.fav-table a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.fav-table a .fa {
+  color: var(--primary-color-light);
+  width: 1.1em;
+}
+
+/* Phone: stack each row into a card, labelled by data-label */
+@media (max-width: 600px) {
+  .fav-table,
+  .fav-table tbody,
+  .fav-table tr,
+  .fav-table th,
+  .fav-table td { display: block; width: 100%; }
+
+  .fav-table { border: 0; background: none; }
+  .fav-table thead { display: none; }
+
+  .fav-table tbody tr {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .fav-table tbody th {
+    border-left: 0;
+    font-size: 1rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .fav-table tbody th,
+  .fav-table td { border-bottom: 0; }
+
+  .fav-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-color-dark);
+    margin-bottom: 0.4rem;
+  }
+}
